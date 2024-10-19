@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block extra_css %}
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="login-text">Login</div>
+
+        <label for="email" class="user-pass">Email <span class="required-star">*</span></label>
+        <input type="text" class="inputs" id="email" name="email" placeholder="example@gmail.com" value="{{ request.POST.email}}">
+
+        <label for="password" class="user-pass">Password <span class="required-star">*</span></label>
+        <div class="password-container">
+            <input type="password" class="inputs" id="password" name="password" placeholder="********" value="{{ request.POST.password }}">
+            <button type="button" class="toggle-button" onclick="togglePassword('password', 'toggleIconPassword')">
+                <i id="toggleIconPassword" class="bi bi-eye-slash"></i>
+            </button>
+        </div>
+        {% if messages %}
+        <div class="error-messages">
+            {% for message in messages %}
+                {% if message.tags == "error" %}  
+                <div class="text-danger">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="signup-link"><a style="text-decoration: none;" href="{% url 'forgotpassword' %}" >Forgot Password</a></div>
+        
+        <button class="button" type="submit">Login</button>
+        <p class="signup">Don't have an account? <a href="{% url 'register' %}" class="signup-link">Register here</a>.</p>
+      
+    </form>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/script.js' %}"></script>
+<script>
+    function togglePassword(passwordFieldId, toggleIconId) {
+  var passwordField = document.getElementById(passwordFieldId);
+  var toggleIcon = document.getElementById(toggleIconId);
+  if (passwordField.type === "password") {
+      passwordField.type = "text";  
+      toggleIcon.classList.remove("bi-eye-slash");
+      toggleIcon.classList.add("bi-eye");  
+  } else {
+      passwordField.type = "password";  
+      toggleIcon.classList.remove("bi-eye");
+      toggleIcon.classList.add("bi-eye-slash");  
+  }
+}
+    </script>
+{% endblock %}

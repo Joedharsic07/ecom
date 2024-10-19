@@ -1,0 +1,120 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/categorypage.css' %}">
+    <title>category</title>
+</head>
+
+<body>
+    <div class="bar">
+        <div style="display: flex;">
+            <div>
+                <h5 class="name">Style Haven</h5>
+            </div>
+            <div>
+                <ul class="bar-ul">
+                    <li class="nav-item">
+                        <a class="nav-link-1" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link-1" href="{% url 'men' %}">Men</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link-1" href="{% url 'women' %}">Women</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link-1" href="#">Kids</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="heading">{{ category_name }} </h3>
+
+        <hr>
+        <div class="products">
+            {% for product in products %}
+            <div class="brd" data-id="{{ product.id }}" data-item="{{ product.name }}" data-price="{{ product.price }}"
+                data-image="{{ product.image.url }}" data-description="{{ product.description }}"
+                data-lnk="{% url 'product_detail' product.id %}">
+                <a href="{% url 'product_detail' product.id %}"></a>
+                    <img src="{{ product.image.url }}" class="b1" alt="{{ product.name }}">
+                
+                <h5 class="crdh">{{ product.name }}</h5>
+                <div class="description">
+                <p >{{ product.description }}</p>
+                </div>
+                <div class="pricebutton">
+                    <p class="price">MRP. <s>Rs. {{product.discount}}</s> Rs. {{ product.price }}</p>
+                    <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
+                </div>
+            </div>
+            {% empty %}
+            <p>No products available in this category.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Company</h5>
+                    <hr>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="nav-link">About Us</a></li>
+                        <li><a href="#" class="nav-link">Our Services</a></li>
+                        <li><a href="#" class="nav-link">Privacy Policy</a></li>
+                        <li><a href="#" class="nav-link">Affiliate Program</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Get Help</h5>
+                    <hr>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="nav-link">FAQ</a></li>
+                        <li><a href="#" class="nav-link">Shipping</a></li>
+                        <li><a href="#" class="nav-link">Returns</a></li>
+                        <li><a href="#" class="nav-link">Order Status</a></li>
+                        <li><a href="#" class="nav-link">Payment Options</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Online Shop</h5>
+                    <hr>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="nav-link">Watch</a></li>
+                        <li><a href="#" class="nav-link">Bag</a></li>
+                        <li><a href="#" class="nav-link">Shoes</a></li>
+                        <li><a href="#" class="nav-link">Dress</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <hr>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+
+</html>

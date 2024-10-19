@@ -1,0 +1,211 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/css/viewproduct.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>{{ product.name }}</title>
+</head>
+
+<body>
+    <div class="bar">
+        <div style="display: flex;">
+            <div>
+                <h5 class="name">Style Haven</h5>
+            </div>
+            <div>
+                <ul class="bar-ul">
+                    <li class="nav-item">
+                        <a class="nav-link-1" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link-1" href="{% url 'men' %}">Men</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link-1" href="{% url 'women' %}">Women</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link-1" href="#">Kids</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img id="product-image" src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid">
+                <div class="product-details">
+                    <div>
+                        <h3 class="spec"> Product details</h3>
+                        <p class="details">{{product.details}} </p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="col-md-6">
+                <div class="bredcrumb">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% if product.category == 'men' %} {% url 'men' %} {% else %} {% url 'women' %} {% endif %}">{% if product.category == 'men'%} Men {% else %} Women {% endif%}</a></li>
+                    <li>{{product.name}}</li>
+                </div>
+                <h2 id="product-name" class="display-4">{{ product.name }}</h2>
+                <h4 id="product-price" class="text-muted"> MRP. <s>Rs. {{product.discount}}</s> Rs. {{ product.price }}
+                </h4>
+                <p id="product-description" class="product-desc">{{ product.description }}</p>
+
+                <div class="size-selection">
+                    <div class="size-header">
+                        <span class="select-size">SELECT SIZE</span>
+                    </div>
+                    <div class="sizes">
+                        <input type="radio" id="size-s" name="size" value="S">
+                        <label for="size-s" class="size-circle">S</label>
+
+                        <input type="radio" id="size-m" name="size" value="M">
+                        <label for="size-m" class="size-circle">M</label>
+
+                        <input type="radio" id="size-l" name="size" value="L">
+                        <label for="size-l" class="size-circle">L</label>
+
+                        <input type="radio" id="size-xl" name="size" value="XL">
+                        <label for="size-xl" class="size-circle">XL</label>
+
+                        <input type="radio" id="size-xxl" name="size" value="XXL">
+                        <label for="size-xxl" class="size-circle">XXL</label>
+                        <button id="add-to-cart" class="btn btn-dark btn-lg">Shop-Now</button>
+
+                    </div>
+                </div>
+               
+                <hr>
+
+
+                <div class="product-details">
+                    <!-- <div>
+                        <h3 class="spec"> Product details</h3>
+                        <p class="details">{{product.details}} </p>
+                    </div> -->
+                    <!-- <hr> -->
+                    <div>
+                        <h3 class="spec">Size & Fit</h3>
+                        <p class="size">Fit: {{ product.fit_type }}</p>
+                        <p class="size">Size: {{ product.size }}</p>
+
+                    </div>
+                    <hr>
+                    <h3 class="spec">Specifications</h3>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Material Composition</th>
+                                <td>{{ product.material_composition }}</td>
+                            </tr>
+                            <tr>
+                                <th>Pattern</th>
+                                <td>{{ product.pattern }}</td>
+                            </tr>
+                            <tr>
+                                <th>Fit Type</th>
+                                <td>{{ product.fit_type }}</td>
+                            </tr>
+                            <tr>
+                                <th>Sleeve Type</th>
+                                <td>{{ product.sleeve_type }}</td>
+                            </tr>
+                            <tr>
+                                <th>Collar Style</th>
+                                <td>{{ product.collar_style }}</td>
+                            </tr>
+                            <tr>
+                                <th>Length</th>
+                                <td>{{ product.length }}</td>
+                            </tr>
+                            <tr>
+                                <th>Country of Origin</th>
+                                <td>{{ product.country_of_origin }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <div class="related-products container mt-5">
+            <h3 class="related-products">Related Products</h3>
+            <div class="row">
+                {% for related_product in related_products %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="{{ related_product.image.url }}" class="card-img-top"
+                            alt="{{ related_product.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ related_product.name }}</h5>
+                            <p class="card-text">Rs. {{ related_product.price }}</p>
+                            <a href="{% url 'product_detail' related_product.id %}"
+                                class="btn btn-primary viewbutton">View Product</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Company</h5>
+                    <hr>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="nav-link">About Us</a></li>
+                        <li><a href="#" class="nav-link">Our Services</a></li>
+                        <li><a href="#" class="nav-link">Privacy Policy</a></li>
+                        <li><a href="#" class="nav-link">Affiliate Program</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Get Help</h5>
+                    <hr>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="nav-link">FAQ</a></li>
+                        <li><a href="#" class="nav-link">Shipping</a></li>
+                        <li><a href="#" class="nav-link">Returns</a></li>
+                        <li><a href="#" class="nav-link">Order Status</a></li>
+                        <li><a href="#" class="nav-link">Payment Options</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Online Shop</h5>
+                    <hr>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="nav-link">Watch</a></li>
+                        <li><a href="#" class="nav-link">Bag</a></li>
+                        <li><a href="#" class="nav-link">Shoes</a></li>
+                        <li><a href="#" class="nav-link">Dress</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <hr>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

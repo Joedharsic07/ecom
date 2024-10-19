@@ -1,0 +1,537 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playwrite+AT:ital,wght@0,100..400;1,100..400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+</head>
+<title>
+  Joe Shopping
+</title>
+</head>
+
+<body>
+
+  <div class="bar">
+
+    <div style="display: flex; ">
+      <div>
+        <h5 class="name">Style Haven</h5>
+      </div>
+      <div>
+        <ul class="bar-ul">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'men' %}">Men</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'women' %}">Women</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./kids.html">Kids</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="profile-dropdown">
+      <i class="fas fa-user profile-icon"></i>
+      <div class="dropdown-content">
+        {% if user.is_authenticated %}
+        <div>
+          <a class="dropdown-item" href="">
+            <i class="fas fa-user profile-icon"></i>
+            <span>Profile</span>
+          </a>
+        </div>
+        <hr class="divider my-1">
+        <!-- <div>
+          <a class="dropdown-item" href="{% url 'edit_profile' %}">
+            <i class="fas fa-edit me-2"></i>
+            <span>Edit Profile</span>
+          </a>
+        </div> -->
+        <div class="dropdown-item">
+
+          <a href="#" class="logout" id="changePasswordLink">
+            <i class="fas fa-lock me-2"></i>
+            <span>Change Password</span>
+          </a>
+        </div>
+        <!-- change password -->
+        <div id="changePasswordModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="changePasswordForm">
+              {% csrf_token %}
+              <div class="login-text">Change Password</div>
+
+              <label for="currentPassword" class="user-pass">Old Password</label>
+              <div class="password-container">
+                <input type="password" id="currentPassword" name="old_password" class="inputs"
+                  placeholder="Enter your Old password">
+                <button type="button" id="toggleCurrentPassword" class="toggle-button">
+                  <i class="fa fa-eye-slash"></i>
+                </button>
+              </div>
+              <div id="oldPasswordError" class="text-danger"></div>
+
+              <label for="newPassword" class="user-pass">New Password</label>
+              <div class="password-container">
+                <input type="password" id="newPassword" name="new_password1" class="inputs"
+                  placeholder="Enter new password">
+                <button type="button" id="toggleNewPassword" class="toggle-button">
+                  <i class="fa fa-eye-slash"></i>
+                </button>
+              </div>
+              <div id="newPasswordError" class="text-danger"></div>
+              <div id="newPasswordLengthError" class="text-danger"></div>
+
+              <label for="confirmPassword" class="user-pass">Confirm Password</label>
+              <div class="password-container">
+                <input type="password" id="confirmPassword" name="new_password2" class="inputs"
+                  placeholder="Confirm new password">
+                <button type="button" id="toggleConfirmPassword" class="toggle-button">
+                  <i class="fa fa-eye-slash"></i>
+                </button>
+              </div>
+
+              <button class="button" type="submit">Change Password</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="dropdown-item" id="logout-btn">
+          <a href="{% url 'logout' %}" class="logout">
+            <i class="fas fa-sign-out-alt me-2"></i>
+            <span>Logout</span>
+          </a>
+        </div>
+        {% else %}
+        <p>Please <a href="{% url 'login' %}">login</a> to see your profile.</p>
+        {% endif %}
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100"
+          src="{% static 'img/tourism-travelling-holidays-concept-man-tourist-enjoying-vacation-dancing-straw-hat-sungl.jpg' %}"
+          alt="Tourism Concept">
+        <div class="carousel-caption1 d-none d-md-block">
+          <h6 class="carousel-h">Men Fashion Wear <br> on sale</h6>
+          <p class="carousel-p">Explore your style, redefine your look. <br> Fashion is an adventure, dress like you're
+            ready to conquer the world.</p>
+          <button class=carousel-button style="border-radius: 10px;" onclick="window.location.href='./Men.html'"> Shop
+            Now</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100"
+          src="{%static 'img/stylish-girl-straw-hat-tank-top-ready-summer-going-vacation-smiling-pleased-standi.jpg'%}"
+          alt="Second slide">
+        <div class="carousel-caption1 d-none d-md-block">
+          <h5 class="carousel-h">Women Fashion Wear <br>on sale</h5>
+          <p class="carousel-p">Explore new horizons in fashion. <br>Every outfit is a step towards discovering the
+            confident, stylish you.</p>
+          <button class=carousel-button style="border-radius: 10px;" onclick="window.location.href='./Women.html'"> Shop
+            Now</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{%static 'img/adorable-child-posing-with-telephone-luggage.jpg'%}"
+          alt="Third slide">
+        <div class="carousel-caption1 d-none d-md-block">
+          <h5 class="carousel-h">Kids fashion Wear <br> on sale</h5>
+          <p class="carousel-p">Explore the world of wonder with every outfit. <br> Let their style shine as bright as
+            their imagination!</p>
+          <button class=carousel-button style="border-radius: 10px;"> Shop Now</button>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+
+
+  <div class="tc" style="margin-top: 80px; border-radius: 10px;">
+    <center>
+      <h3 class="h1">women collections</h3>
+    </center>
+  </div>
+
+  <div class="container-fluid" style="margin-top: 46px; padding: 0px 80px 0px 80px;">
+    <div class="product-card" style="width: 15rem; height: 15rem; border-radius: 10px;">
+      {%load static%}
+      <img class="img-card" src="{%static 'img/Group 481971 (3).png'%}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Sarees</h5>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <!-- <center> <button class=card-button style="border-radius: 5px;"> Shop Now</button></center> -->
+      </div>
+    </div>
+    <div class="product-card" style="width: 15rem; height: 15rem; border-radius: 10px;">
+      {%load static%}
+      <img class="img-card" src="{% static 'img/Group 481971 (2).png' %}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">office wear</h5>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <!-- <center> <button class=card-button style="border-radius: 5px;"> Shop Now</button></center> -->
+      </div>
+    </div>
+    <div class="product-card" style="width: 15rem; height: 15rem; border-radius: 10px;">
+      <img class="img-card" src="{%static 'img/Group 481958 (4).png'%}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <!-- <center> <button class=card-button style="border-radius: 5px;"> Shop Now</button></center> -->
+      </div>
+    </div>
+    <div class="product-card" style="width: 15rem; height: 15rem; border-radius: 10px;">
+      <img class="img-card" src="{%static 'img/Group 481958 (1).png'%}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <!-- <center> <button class=card-button style="border-radius: 5px;"> Shop Now</button></center> -->
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 300px; margin-left: 143px;">
+    <div class="container1">
+      <div>
+        <img class="off-img" alt="off-img" src="{%static 'img/Group 481972 (2).png'%}" width="100%">
+      </div>
+      <div>
+        <h3 class="off-card">Top Brands </h3>
+        <h4 class="off-card-2">for men</h4>
+        <p class="off-card-3">UP to <span class="large-word">50%</span> Off</p>
+        <button class="offer-btn" onclick="window.location.href='/Men.html'">Men</button>
+
+      </div>
+      <div>
+        <img class="off-img" alt="off-img" src="{%static 'img/card women.png'%}" width="100%">
+      </div>
+      <div>
+        <h3 class="off-card-4">Top Brands</h3>
+        <h4 class="off-card-5">for women</h4>
+        <p class="off-card-6">Up to <span class="large-word">50%</span>off</p>
+        <button class="offer-btn" onclick="window.location.href='./Women.html'">Women</button>
+      </div>
+    </div>
+  </div>
+  <div>
+
+    <div class="container features-section ">
+      <div class="row justify-content-center">
+        <div class="col-md-2 col-6 feature-item">
+          <i class="bi bi-arrow-repeat"></i>
+          <p>Easy Returns</p>
+        </div>
+        <div class="col-md-2 col-6 feature-item">
+          <i class="bi bi-telephone"></i>
+          <p>1800-103-7527</p>
+        </div>
+        <div class="col-md-2 col-6 feature-item">
+          <i class="bi bi-truck"></i>
+          <p>Free Shipping</p>
+        </div>
+        <div class="col-md-2 col-6 feature-item">
+          <i class="bi bi-cash"></i>
+          <p>Cash on Delivery</p>
+        </div>
+        <div class="col-md-2 col-6 feature-item">
+          <i class="bi bi-lock"></i>
+          <p>Secure Payment</p>
+        </div>
+        <div class="col-md-2 col-6 feature-item">
+          <i class="bi bi-sliders"></i>
+          <p>Free Alterations</p>
+        </div>
+      </div>
+    </div>
+    <h1 class="oc-h-1">Trending Now</h1>
+  </div>
+
+  <!-- <div class="container oc-con" >
+<h3 class="oc-h">Trending Now</h3>
+</div> -->
+
+  <div class="oc-card-2" style="margin-top: 46px; padding: 0px 61px 0px 61px;">
+    <div class="product-card" style="width: 15rem; height: 15rem; border-radius: 10px;">
+      <img class="img-card" src="{%static 'img/Group 481960 (1).png'%}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <!-- <center><button class=card-button style="border-radius: 5px;"> Shop Now</button></center> -->
+      </div>
+    </div>
+    <div class="product-card" style="width: 15rem; height: 15rem; border-radius: 10px;">
+      <img class="img-card" src="{%static 'img/kid.png'%}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <!-- <center> <button class=card-button style="border-radius: 5px;"> Shop Now</button></center> -->
+      </div>
+    </div>
+    <div class="product-card" style="width: 15rem; height: 15rem; border-radius: 10px;">
+      <img class="img-card" src="{%static 'img/Group 481967 (2).png'%}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <!-- <center> <button class=card-button style="border-radius: 5px;"> Shop Now</button></center> -->
+      </div>
+    </div>
+    <div class="product-card" style="width: 15rem; height: 15rem; border-radius: 10px;">
+      <img class="img-card" src="{%static 'img/coat.png'%}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+        <!-- <center> <button class=card-button style="border-radius: 5px;"> Shop Now</button></center> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="container oc-con">
+    <h3 class="oc-h">Best sellers</h3>
+  </div>
+  <section>
+    <div class="oc-card-3" style=" padding: 0px 61px 0px 61px;">
+      <div class="product-card" style="width: 15rem; height: 15rem; border-radius: 10px;">
+        <img class="img-card" src="{% static 'img/Group 481973.png'%}" alt="Card image cap">
+        <div class="card-body">
+          <center>
+            <h5 class="card-title">Card title</h5>
+          </center>
+          <!-- <center> <button class=card-button style="border-radius: 5px;"> Shop Now</button></center> -->
+        </div>
+      </div>
+      <div class="product-card" style="width: 15rem; height: 15rem; border-radius: 10px;">
+        <img class="img-card" src="{%static 'img/Group 481963.png'%}" alt="Card image cap">
+        <div class="card-body">
+          <center>
+            <h5 class="card-title">Card title</h5>
+          </center>
+          <!-- <center> <button class=card-button style="border-radius: 5px;"> Shop Now</button></center> -->
+        </div>
+      </div>
+      <div class="product-card" style="width: 15rem; height: 15rem; border-radius: 10px;">
+        <img class="img-card" src="{%static 'img/Group 481962.png'%}" alt="Card image cap">
+        <div class="card-body">
+          <center>
+            <h5 class="card-title">Card title</h5>
+          </center>
+          <!-- <center> <button class=card-button style="border-radius: 5px;"> Shop Now</button></center> -->
+        </div>
+      </div>
+      <div class="product-card" style="width: 15rem; height: 15rem; border-radius: 10px;">
+        <img class="img-card" src="{%static 'img/Group 481973 (2).png'%}" alt="Card image cap">
+        <div class="card-body">
+          <center>
+            <h5 class="card-title">Card title</h5>
+          </center>
+          <!-- <center> <button class=card-button style="border-radius: 5px;"> Shop Now</button></center> -->
+        </div>
+      </div>
+  </section>
+
+
+  <div class="container">
+    <div class="sploff">
+      <img class="sploffimg" src="{%static 'img/sploff.png'%}" alt="off-img">
+    </div>
+    <div>
+      <h2 class="offerh">Deal of the day</h2>
+      <p class="offp">Lorem ipsum dolor sit amet consectetur</p>
+      <!-- <button class="offbtn"> Shop Now</button> -->
+    </div>
+  </div>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>Company</h5>
+          <hr>
+          <ul class="list-unstyled">
+            <li><a href="#" class="nav-link">About Us</a></li>
+            <li><a href="#" class="nav-link">Our Services</a></li>
+            <li><a href="#" class="nav-link">Privacy Policy</a></li>
+            <li><a href="#" class="nav-link">Affiliate Program</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Get Help</h5>
+          <hr>
+          <ul class="list-unstyled">
+            <li><a href="#" class="nav-link">FAQ</a></li>
+            <li><a href="#" class="nav-link">Shipping</a></li>
+            <li><a href="#" class="nav-link">Returns</a></li>
+            <li><a href="#" class="nav-link">Order Status</a></li>
+            <li><a href="#" class="nav-link">Payment Options</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Online Shop</h5>
+          <hr>
+          <ul class="list-unstyled">
+            <li><a href="#" class="nav-link">Watch</a></li>
+            <li><a href="#" class="nav-link">Bag</a></li>
+            <li><a href="#" class="nav-link">Shoes</a></li>
+            <li><a href="#" class="nav-link">Dress</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Follow Us</h5>
+          <hr>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script>
+// Toggle dropdown visibility on profile icon click
+document.querySelector(".profile-icon").addEventListener("click", function () {
+    var dropdown = document.querySelector(".dropdown-content");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+});
+
+// Close dropdown if clicking outside
+window.addEventListener("click", function(event) {
+    var dropdown = document.querySelector(".dropdown-content");
+    if (!event.target.closest(".profile-dropdown")) {
+        dropdown.style.display = "none";
+    }
+});
+
+// Show change password modal when clicking 'Change Password'
+document.getElementById('changePasswordLink').onclick = function (event) {
+    event.preventDefault(); // Prevent default link behavior
+    document.getElementById('changePasswordModal').style.display = 'block';
+};
+
+// Close modal when 'X' is clicked or outside the modal
+document.querySelector('.close').onclick = function () {
+    document.getElementById('changePasswordModal').style.display = 'none';
+};
+
+// Close modal when clicking outside the modal content
+window.onclick = function (event) {
+    if (event.target === document.getElementById('changePasswordModal')) {
+        document.getElementById('changePasswordModal').style.display = 'none';
+    }
+};
+
+// Toggle password visibility in password fields
+document.getElementById('toggleCurrentPassword').onclick = function () {
+    let input = document.getElementById('currentPassword');
+    togglePassword(input, this);
+};
+
+document.getElementById('toggleNewPassword').onclick = function () {
+    let input = document.getElementById('newPassword');
+    togglePassword(input, this);
+};
+
+document.getElementById('toggleConfirmPassword').onclick = function () {
+    let input = document.getElementById('confirmPassword');
+    togglePassword(input, this);
+};
+
+function togglePassword(input, toggleButton) {
+    if (input.type === 'password') {
+        input.type = 'text';
+        toggleButton.innerHTML = '<i class="fa fa-eye"></i>';
+    } else {
+        input.type = 'password';
+        toggleButton.innerHTML = '<i class="fa fa-eye-slash"></i>';
+    }
+}
+
+
+    document.getElementById('changePasswordForm').onsubmit = function (event) {
+      event.preventDefault();  // Prevent the default form submission
+
+      const oldPassword = document.getElementById('currentPassword').value;
+      const newPassword1 = document.getElementById('newPassword').value;
+      const newPassword2 = document.getElementById('confirmPassword').value;
+      const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+      const formData = new FormData();
+      formData.append('old_password', oldPassword);
+      formData.append('new_password1', newPassword1);
+      formData.append('new_password2', newPassword2);
+
+      fetch('{% url "change_password_ajax" %}', {
+        method: 'POST',
+        headers: {
+          'X-CSRFToken': csrfToken
+        },
+        body: formData
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Clear previous error messages
+          document.querySelectorAll('.text-danger').forEach(el => el.textContent = '');
+
+          if (data.success) {
+            // If password change is successful, show success message and close modal
+            alert(data.message);
+            document.getElementById('changePasswordModal').style.display = 'none';
+            // Optionally reload the page or update the UI
+            location.reload();
+          } else {
+            if (data.errors.old_password) {
+              document.getElementById('oldPasswordError').textContent = data.errors.old_password;
+            }
+            if (data.errors.new_password) {
+              document.getElementById('newPasswordError').textContent = data.errors.new_password;
+            }
+            if (data.errors.new_password_length) {
+              document.getElementById('newPasswordLengthError').textContent = data.errors.new_password_length;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    };
+  </script>
+</body>
+
+</html>

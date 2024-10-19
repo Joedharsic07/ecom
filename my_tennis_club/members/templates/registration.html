@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Register{% endblock %}
+{% block extra_css %}
+<link href="{% static 'css/register.css' %}" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="form-container">
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        <div class="login-text">Register</div>
+        <label for="username" class="user-pass">Username</label>
+        <input type="text" id="username" name="username" class="inputs" placeholder="Eg. Samson" value="{{ username }}">
+        <div class="text-danger">{{ errors.username }}</div>
+        <label for="email" class="user-pass">Email <span class="required-star">*</span></label>
+        <input type="email" id="email" name="email" class="inputs" placeholder="example@gmail.com" value="{{ email }}">
+        <div class="text-danger">{{ errors.email }}</div>
+        {% if not otp_verified %}
+        {% if otp_sent %}
+        <label for="otp" class="user-pass">OTP <span class="required-star">*</span></label>
+        <input type="text" id="otp" name="otp" class="inputs" placeholder="Enter OTP">
+        <div class="text-danger">{{ errors.otp }}</div>
+        <div class="btns">
+            <button type="submit" name="resend_otp" class="resend-button">Resend OTP</button>
+            <button type="submit" name="verify_otp" class="verify-button">Verify OTP</button>    
+        </div>
+        {% else %}
+        <button type="submit" name="send_otp" class="button">Send OTP</button>
+        {% endif %}
+        {% else %}
+        <input type="hidden" name="otp_verified" value="True">
+        <label for="password1" class="user-pass">Password <span class="required-star">*</span></label>
+        <div class="password-container">
+            <input type="password" id="password1" name="password1" class="inputs" value="{{password1}}" placeholder="New Password"
+                oninput="validatePassword('password1')">
+            <button type="button" class="toggle-button" onclick="togglePassword('password1', 'toggleIconPassword1')">
+                <i id="toggleIconPassword1" class="bi bi-eye-slash"></i>
+            </button>
+        </div>
+        <div class="text-danger" id="password1-error">{{ errors.password1 }}</div>
+        <label for="password2" class="user-pass">Confirm Password <span class="required-star">*</span></label>
+        <div class="password-container">
+            <input type="password" id="password2" name="password2" class="inputs" value="{{password2}}" placeholder="Confirm Password">
+            <button type="button" class="toggle-button" onclick="togglePassword('password2', 'toggleIconPassword2')">
+                <i id="toggleIconPassword2" class="bi bi-eye-slash"></i>
+            </button>
+        </div>
+        <div class="text-danger" id="password2-error">{{ errors.password2 }}</div>
+        <button type="submit" name="register" class="button">Register</button>
+        {% endif %}
+        <p class="signup">Already have an account? <a href="{% url 'login' %}" class="signup-link">Login here</a>.</p>
+    </form>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+    function togglePassword(passwordId, iconId) {
+        const passwordInput = document.getElementById(passwordId);
+        const icon = document.getElementById(iconId);
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            icon.classList.remove("bi-eye-slash");
+            icon.classList.add("bi-eye");
+        } else {
+            passwordInput.type = "password";
+            icon.classList.remove("bi-eye");
+            icon.classList.add("bi-eye-slash");
+        }
+    }
+    function validatePassword(passwordId) {
+        const passwordInput = document.getElementById(passwordId);
+        const passwordValue = passwordInput.value;
+        const errorElement = document.getElementById(passwordId + "-error");
+        const hasUppercase = /[A-Z]/.test(passwordValue);
+        const hasNumber = /\d/.test(passwordValue);
+        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(passwordValue);
+        const isLongEnough = passwordValue.length >= 8;
+        let errorMessage = "";
+        if (!isLongEnough) {
+            errorMessage += "Password must be at least 8 characters long.<br>";
+        }
+        if (!hasUppercase) {
+            errorMessage += "Password must contain at least 1 uppercase letter.<br>";
+        }
+        if (!hasNumber) {
+            errorMessage += "Password must contain at least 1 number.<br>";
+        }
+        if (!hasSpecialChar) {
+            errorMessage += "Password must contain at least 1 special character.<br>";
+        }
+        errorElement.innerHTML = errorMessage;
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,118 @@
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0px;
+}
+
+.bg-img {
+    width: 100%;
+    height: 100vh;
+    object-fit: contain;
+}
+
+.form-container {
+    padding: 50px;
+    background-color: transparent;
+    border-radius: 10px;
+    /* line-height: 35px; */
+    width: 573px;
+    margin: auto;
+
+}
+
+.user-pass {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.button {
+    padding:  10px;
+    width: 100%;
+    margin-top: 16px;
+    background-color:#7d97f4;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.button:hover {
+    background-color: #687bbd;
+}
+
+.login-text {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+}
+
+.login {
+    color: #000000;
+    text-decoration: none;
+}
+
+.login:hover {
+    color: #005dba;
+    text-decoration: none;
+}
+
+.inputs {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    margin-bottom: 15px;
+}
+
+.forgotpassword {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #0c86ff;
+    text-decoration: none;
+}
+
+.forgotpassword:hover {
+    text-decoration: none;
+    color: #005dba;
+}
+
+.signup {
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 23px;
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-button {
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000;
+}
+.required-star {
+    color: red;
+}
+.signup-link{
+    text-decoration: none;
+    text-align: right;
+}

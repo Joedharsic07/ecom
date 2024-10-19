@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Edit Profile {% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/edit.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="form-container">
+        <form method="post" action="{% url 'edit_profile' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="login-text">Edit Profile</div>
+            <div class="profile-pic-container">
+                <div class="profile-pic-wrapper">
+                    {% if user.profile_picture %}
+                    <img src="{{ user.profile_picture.url }}" alt="Profile Picture" class="profile-pic">
+                    {% else %}
+                    <img src="{% static 'img/avatar-generic.jpg' %}" alt="Default Profile Picture" class="profile-pic">
+                    {% endif %}
+                    <label for="profile_picture" class="upload-icon">
+                        <i class="fa fa-camera"></i>
+                    </label>
+                    <input type="file" name="profile_picture" accept="image/*" id="profile_picture" class="file-upload" style="display: none;">
+                </div>
+            </div>
+            <label for="username" class="user-pass">Username</label>
+            <input type="text" class="inputs" id="username" name="username" placeholder="Enter your username" value="{{ user.username }}">
+            {% if user.username.errors %}
+            <div class="text-danger">{{ user.username.errors }}</div>
+            {% endif %}
+            <label for="first_name" class="user-pass">First Name</label>
+            <input type="text" class="inputs" id="first_name" name="first_name" placeholder="Enter first name" value="{{ user.first_name }}">
+            {% if user.first_name.errors %}
+            <div class="text-danger">{{ user.first_name.errors }}</div>
+            {% endif %}
+            <label for="last_name" class="user-pass">Last Name</label>
+            <input type="text" class="inputs" id="last_name" name="last_name" placeholder="Enter last name" value="{{ user.last_name }}">
+            {% if user.last_name.errors %}
+            <div class="text-danger">{{ user.last_name.errors }}</div>
+            {% endif %}
+            <label for="email" class="user-pass">Email</label>
+            <input type="email" class="inputs" id="email" name="email" placeholder="Enter your email" value="{{ user.email }}" readonly>
+            {% if user.email.errors %}
+            <div class="text-danger">{{ user.email.errors }}</div>
+            {% endif %}
+            <button class="button" type="submit">Save Changes</button>
+        </form>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

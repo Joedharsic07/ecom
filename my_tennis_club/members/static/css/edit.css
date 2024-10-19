@@ -1,0 +1,151 @@
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0px;
+}
+
+.bg-img {
+    width: 100%;
+    height: 100vh;
+    object-fit: contain;
+}
+
+.form-container {
+    background-color: transparent;
+    border-radius: 10px;
+    /* line-height: 35px; */
+    margin: auto;
+
+}
+
+.user-pass {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.button {
+    padding:  10px;
+    width: 100%;
+    margin-top: 16px;
+    background-color:#7d97f4;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.button:hover {
+    background-color: #687bbd;
+}
+
+.login-text {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+}
+
+.login {
+    color: #000000;
+    text-decoration: none;
+}
+
+.login:hover {
+    color: #005dba;
+    text-decoration: none;
+}
+
+.inputs {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    margin-bottom: 15px;
+}
+
+.forgotpassword {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #0c86ff;
+    text-decoration: none;
+}
+
+.forgotpassword:hover {
+    text-decoration: none;
+    color: #005dba;
+}
+
+.signup {
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 23px;
+}
+
+.password-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.toggle-button {
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000;
+}
+.required-star {
+    color: red;
+}
+/* Add this CSS to your stylesheet */
+.profile-pic-container {
+    position: relative; /* For positioning the camera icon */
+    margin-bottom: 20px; /* Space below the profile picture */
+}
+
+.profile-pic-wrapper {
+    position: relative; /* Required for absolute positioning of the icon */
+    display: inline-block; /* Ensure the wrapper fits the image */
+}
+
+.profile-pic {
+    width: 100px; /* Set width of the profile picture */
+    height: 100px; /* Set height of the profile picture */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Cover the image without stretching */
+    border: 2px solid #ddd; /* Optional: Add a border around the profile picture */
+}
+
+.upload-icon {
+    position: absolute; /* Position the icon over the image */
+    bottom: 0; /* Position at the bottom */
+    right: 0; /* Position to the right */
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 50%; /* Make the icon circular */
+    padding: 5px; /* Space around the icon */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+    display: flex; /* Center the icon */
+    justify-content: center; /* Center the icon */
+    align-items: center; /* Center the icon */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow */
+}
+
+.upload-icon i {
+    color: #555; /* Change icon color */
+    font-size: 24px; /* Adjust icon size */
+}
+

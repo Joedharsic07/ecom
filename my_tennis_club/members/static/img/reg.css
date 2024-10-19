@@ -1,0 +1,107 @@
+.bg-img{
+    width: 100%;
+    position: absolute;
+    height: 100vh; /* Sets the height to 100% of the viewport height */
+    object-fit: cover;
+    top: 0px;
+   
+}
+.container {
+    background-color: #000000;
+    opacity: 0.8;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: #be6c3940 0px 14px 28px, #be6c3940 0px 10px 10px;
+    line-height: 35px;
+    /* margin-top: 60px; */
+    width: 550px;
+    margin-right: 84px;
+    position: relative;
+    right: 24%;
+    top: 56px;
+}
+
+.lable{
+    color: white;
+}
+.button{
+    padding: 2px;
+    width: 100%;
+    margin-top: 16px;
+    background-color: #9f6118;
+    color: white;
+    border-radius: 10px ;
+    border: none;
+}
+.button:hover{
+    background-color: #835119;
+}
+.login-text{
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+}
+.inputs{
+    width: 100%;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.align-items-start{
+height: 500px;
+}
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 23px;
+}
+.password-container {
+    position: relative;
+}
+.toggle-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+.u{
+    color: #0c86ff;
+}
+.u:hover{
+    color: blue;
+    cursor: pointer;
+}
+.checkbox{
+    cursor: pointer;
+}
+.agree{
+    text-align: center;
+    color: white;
+}
+.login{
+    color:  #0c86ff;;
+    text-decoration: none;
+}
+.login:hover{
+    color: rgb(3, 3, 192);
+}
+.signup{
+    text-align: center;
+    color: white;
+}
+a{
+    color:#0c86ff ;
+    text-decoration: none;
+}
+a:hover{
+    color: blue;
+}
+.label{
+    color: white;
+}

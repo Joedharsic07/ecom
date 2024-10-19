@@ -1,0 +1,125 @@
+.bar {
+    display: flex;
+    background-color: #343a40;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.bar-ul {
+    display: inline-flex;
+    list-style-type: none;
+    line-height: 1;
+    margin-top: 9px;
+
+}
+
+.nav-link-1 {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.nav-link-1:hover {
+    background-color: #495057;
+    color: #ffffff;
+}
+
+.name {
+    color: white;
+    font-size: 20px;
+    padding-right: 20px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    padding: 4px;
+}
+.products {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    justify-content: space-between; 
+  }
+  .brd {
+    flex: 1 1 calc(25% - 20px); 
+    box-sizing: border-box; 
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+  
+  .brd img {
+    max-width: 100%;
+    height: auto;
+  }
+  .b1 {
+    height: 340px;
+    width: 254.75px;
+    border-radius: 10px;
+}
+  .crdh {
+    margin-top: 20px;
+    height: 35px;
+    line-height: 19px;
+    text-align: center;
+    line-height: 16px;
+    text-transform: uppercase;
+  }
+    .heading{
+    font-weight: bold;
+    text-align: center;
+    padding-top:20px ;
+    text-transform: uppercase;
+    font-size: 42px;
+    padding-top: 50px;
+  }
+  .footer {
+    background-color: #2C2C2C;
+    color: white;
+    padding: 40px 0;
+    position: relative;
+    top: 100px;}
+  .footer h5 {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .footer .nav-link {
+    color: #B0B0B0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .footer .nav-link:hover {
+    color: #ffffff;
+  }
+  .footer hr {
+    border-top: 2px solid #ffffff;
+    width: 50px;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+  .social-icons a {
+    color: white;
+    font-size: 24px;
+    margin-right: 15px;
+  }
+  .social-icons a:hover {
+    color: #ffffff;
+  }
+  .btn-primary{
+    color: #fff;
+    background-color: #000000;
+    border-color: #000000;
+    border-radius: 17px;
+  }
+  .btn-primary:hover{
+    background-color: #242323;
+    border-color: #242323;
+  }
+  .description{
+    font-size: 16px;
+    text-align: center;
+  }

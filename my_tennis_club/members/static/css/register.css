@@ -1,0 +1,189 @@
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0px;
+}
+
+.bg-img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.form-container {
+    background-color: transparent;
+    border-radius: 10px;
+    width: 573px;
+    margin: auto;
+
+}
+
+.user-pass {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.button {
+    padding:  10px;
+    width: 100%;
+    margin-top: 16px;
+    background-color: #7d97f4;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.button:hover {
+    background-color: #9fb4fe;
+}
+
+.login-text {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+}
+
+.login {
+    color: #000000;
+    text-decoration: none;
+    text-align: center;
+}
+.inputs {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    margin-bottom: 15px;
+}
+
+.forgotpassword {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #0c86ff;
+    text-decoration: none;
+}
+
+.forgotpassword:hover {
+    text-decoration: none;
+    color: #005dba;
+}
+
+.signup {
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 23px;
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-button {
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000;
+}
+.required-star {
+    color: red;
+}
+.text-danger {
+    list-style: none; 
+    margin: 0;
+    padding: 0;
+}
+
+.text-danger p {
+    margin: 0;
+    padding: 0;
+    list-style: none; 
+}
+.errorlist{
+    list-style: none;
+}
+.login-link{
+    text-decoration: none;
+}
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.signup-link{
+    text-decoration: none;
+    text-align: right;
+}
+
+.verify-button{
+    width:40%;
+    background-color: #7d97f4;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+}
+.resend-button{
+    width:40%;
+    background-color: #7d97f4;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+
+    cursor: pointer;
+}
+.btns{
+    display: flex;
+    justify-content: space-evenly;
+}

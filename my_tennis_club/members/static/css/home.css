@@ -1,0 +1,896 @@
+.body {
+    font-family: "Rubik", sans-serif;
+    /* background-color: #dbdb5dcd; */
+  }
+  .bar
+  {
+    display: flex; 
+     background-color: #343a40;
+    justify-content: space-between;
+    align-items:center;
+    padding: 15px;
+}
+.bar-ul{
+    display:inline-flex ;
+    list-style-type: none;
+    line-height: 1;
+
+
+}
+  .nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  
+  .nav-link:hover {
+    background-color: #495057;
+    color: #ffffff; 
+  }
+  
+  /* Search Bar Styles */
+  .InputContainer {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+  
+  .input {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1rem;
+    width: 200px; /* Adjust width as needed */
+  }
+  
+  .labelforsearch {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+  }
+  
+  .searchIcon {
+    width: 24px;
+    height: 24px;
+    fill: #333; /* Icon color */
+  }
+  
+  /* Profile Dropdown Styles */
+  .profile-dropdown {
+    position: relative;
+  }
+  
+  .profile-icon {
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 200px;
+  }
+  
+  .profile-dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .profile-info {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .profile-icon-small {
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+.logout{
+    text-decoration: none;
+    color: black;
+}
+.fa-sign-out-alt{
+  color: black;
+}
+  .username {
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .dropdown-item {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f8f9fa; /* Light grey on hover */
+  }
+  
+  .divider {
+    margin: 0;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: column;
+    }
+  
+    .nav-link {
+      padding: 10px;
+    }
+  
+    .InputContainer {
+      width: 100%;
+    }
+  
+    .dropdown-content {
+      width: 100%;
+      right: 0;
+    }
+  }
+  
+  .form-inline {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .input-group-text {
+    cursor: pointer;
+  }
+  
+  .form-control {
+    border-radius: 10px;
+  }
+  
+  .button {
+    background-color: #212121;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .form-inline {
+    display: flex;
+  }
+  
+  .carousel-h {
+    font-size: 50px;
+    text-shadow: 2px 2px #000000b1;
+    color: #ffffff;
+  
+  }
+  
+  .carousel-p {
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 2px 2px #000000b1;
+    color: #ffffff;
+  }
+  
+  .img-container {
+    max-width: 100%;
+    /* Adjust as needed */
+    margin: 0 auto;
+    /* Center the container */
+    background-color: #f5f5dc;
+    height: 300px;
+  
+  }
+  
+  .img-fluid {
+    width: 100%;
+    /* Make the image responsive */
+    height: auto;
+    /* Maintain aspect ratio */
+  }
+  
+  .profile-icon {
+    color: #ffffff;
+    font-size: 20px;
+    margin-left: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+
+  
+  .input {
+    width: 170px;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+    caret-color: rgb(255, 81, 0);
+  }
+  
+  
+  .border {
+    height: 40%;
+    width: 1.3px;
+    background-color: rgb(223, 223, 223);
+  }
+  
+  .micIcon {
+    width: 12px;
+  }
+  
+  .micButton {
+    padding: 0px 15px 0px 12px;
+    border: none;
+    background-color: transparent;
+    height: 40px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+  }
+  
+  .micButton:hover {
+    background-color: rgb(255, 230, 230);
+    transition-duration: 0.3s;
+  }
+  
+  .name {
+    color: white;
+    font-size: 20px;
+    padding-right: 20px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    padding: 4px;
+  }
+  
+  .d-block {
+    margin-top: 0px;
+  }
+  
+  .w-100 {
+    width: 100% !important;
+    margin-top: 0px;
+  }
+  
+  .btn-primary {
+    color: #fff;
+    background-color: #000000;
+    /* border-color: #000000; */
+    border-radius: 5px;
+  }
+  
+  .btn-primary:hover {
+    color: red;
+  
+  }
+  
+  .container-fluid {
+    display: flex;
+    /* margin-top: 60px; */
+    justify-content: space-around;
+    padding: 10px;
+  }
+  
+  .card-tittle {
+    text-align: center;
+  }
+  
+  .img-card {
+    border-radius: 10px;
+    height: 364px;
+    width: 254.75px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+  
+  .tc {
+    margin-top: 30px;
+  }
+  
+  .h1 {
+    margin-top: 80px;
+  }
+  
+  .card-title {
+    text-align: center;
+  }
+  
+  .off-card {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+  }
+  
+  .off-card-2 {
+    position: absolute;
+    top: 32%;
+    left: 29%;
+  }
+  
+  .off-card-3 {
+    position: absolute;
+    top: 42%;
+    left: 23%;
+    font-size: x-large;
+    font-weight: bolder;
+  }
+  
+  .off-card-4 {
+    position: absolute;
+    left: 73%;
+    top: 19%;
+  }
+  
+  .off-card-5 {
+    position: absolute;
+    left: 77%;
+    top: 32%;
+  
+  }
+  
+  .off-card-6 {
+    position: absolute;
+    font-size: x-large;
+    font-weight: bolder;
+    left: 72%;
+    top: 50%;
+  }
+  
+  .off-img {
+    /* border-radius: 10px; */
+    width: 537px;
+    height: 244px;
+    border-radius: 10px;
+  }
+  
+  .column-left {
+    border-radius: 10px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+    height: 244px;
+  }
+  
+  .large-word {
+    font-size: 45px;
+    /* Adjust the size as needed */
+    font-weight: bold;
+    /* Optional: make the word bold */
+  }
+  
+  .card-button {
+    background-color: #000000;
+    border-radius: 10px;
+    border: none;
+    width: 100px;
+    color: white;
+    height: 35px;
+    /* margin-left: 61px; */
+  }
+  
+  /* .img-card{
+    border: solid black 2px;
+  } */
+  .carousel-caption1 {
+    position: absolute;
+    right: 0%;
+    bottom: 11.25rem;
+    left: 29%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .carousel-button {
+    background-color: #000000;
+    box-shadow: 2px 2px #000000;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 11px 11px 11px 11px;
+    font-size: 20px;
+    margin-top: 25px;
+    width: 200px;
+  }
+  
+  .oc-h {
+    text-align: center;
+    color: #000000;
+    font-size: 2.5rem;
+    height: 60px;
+  }
+  
+  .oc-con {
+    position: relative;
+    top: 236px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .oc-h-1 {
+    text-align: center;
+    color: #000000;
+    font-size: 2.5rem;
+    height: 60px;
+    padding: 70px;
+  }
+  
+  .oc-card-2 {
+    display: flex;
+    /* margin-top: 90px; */
+    justify-content: space-around;
+    padding: 10px;
+  }
+  
+  .oc-card-3 {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    top: 280px;
+  
+  }
+  
+  .ocard {
+    width: 512px;
+    height: 232.73px
+  }
+  
+  .custom-card {
+    width: 512px;
+    height: 232.73px;
+    margin-top: 200px;
+  }
+  
+  .custom-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .tn-h {
+    position: absolute;
+    top: 1357px;
+    align-items: center;
+  }
+  
+  .container1 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  
+  .column {
+    flex: 1;
+    /* padding: 20px; */
+    border: 1px solid #ddd;
+    margin: 10px;
+  }
+  
+  .column.left {
+    background-color: #f0f0f0;
+  }
+  
+  .column.right {
+    background-color: #e0e0e0;
+  }
+  
+  .offer-btn {
+    position: relative;
+    right: 199px;
+    top: 187px;
+    background-color: #000000;
+    border-radius: 10px;
+    border: none;
+    width: 85px;
+    color: white;
+    /* height: 28px; */
+    text-align: center;
+    padding: 5px;
+  }
+  
+  .offer-btn:hover {
+    background-color: #000000;
+  }
+  
+  .product-card {
+    width: 15rem;
+    height: 357px;
+    border-radius: 10px;
+  }
+  
+  .feature-item {
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  .feature-item img {
+    max-width: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .feature-item p {
+    margin: 5px 0;
+    font-weight: bold;
+  }
+  
+  .feature-item span {
+    font-weight: normal;
+    font-size: 14px;
+  }
+  
+  .features-section {
+    background-color: whitesmoke;
+    padding: 40px 0;
+    color: white;
+    margin-top: 100px;
+    border-radius: 10px;
+  }
+  
+  .feature-item {
+    text-align: center;
+  
+  }
+  
+  .feature-item .bi {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #212529;
+  }
+  
+  .feature-item p {
+    margin: 5px 0;
+    font-weight: bold;
+    color: #212529;
+  }
+  
+  .feature-item span {
+    font-weight: normal;
+    font-size: 14px;
+  }
+  
+  
+  .footer {
+    background-color: #2C2C2C;
+    color: white;
+    padding: 40px 0;
+    position: relative;
+    top: 479px;}
+  
+  .footer h5 {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .footer .nav-link {
+    color: #B0B0B0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .footer .nav-link:hover {
+    color: #ffffff;
+  }
+  
+  .footer hr {
+    border-top: 2px solid #ffffff;
+    width: 50px;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+  
+  .social-icons a {
+    color: white;
+    font-size: 24px;
+    margin-right: 15px;
+  }
+  
+  .social-icons a:hover {
+    color: #ffffff;
+  }
+  
+  .foot-item {
+    color: #e0e0e0;
+  }
+  
+  .sale-car {
+    position: relative;
+    top: 400px;
+  }
+  
+  .mt-5 {
+    /* margin-top: 3rem !important; */
+    position: relative;
+    top: 400px;
+  }
+  
+  
+  .sploff {
+    position: relative;
+    top: 565px;
+  }
+  
+  .sploffimg {
+    border-radius: 10px;
+    width: 100%;
+  }
+  
+  .offerh {
+    position: relative;
+    top: 180px;
+    font-size: 60px;
+    right: 90px;
+    text-align: center;
+    letter-spacing: 5px;
+  }
+  
+  .offp {
+    position: relative;
+    top: 200px;
+    left: 108px;
+    font-size: xxx-large;
+  }
+  
+  .offbtn {
+    position: relative;
+    background-color: #000000;
+    color: white;
+    padding: 5px;
+    width: 150px;
+    border-radius: 24px;
+    top: 211px;
+    left: 449px;
+    cursor: pointer;
+  }
+  
+  .offbtn:hover {
+    background-color: #1c1919;
+  }
+  
+  .profile{
+    color: #000;
+    text-decoration: none;
+  }
+  
+  
+  .profile-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .profile-icon {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  
+  .arrow-icon {
+    font-size: 12px;
+    color: #888;
+    margin-left: auto;
+  }
+  
+
+  
+  /* Modal styles */
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Ensure it appears above other elements */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scrolling if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background with transparency */
+}
+
+/* Modal Content Box */
+.modal-content {
+  background-color: #fff; /* White background */
+  margin: 10% auto; /* Centered content */
+  padding: 20px;
+  border-radius: 8px; /* Slightly rounded corners */
+  width: 40%; /* Width relative to viewport */
+  max-width: 500px; /* Max width for larger screens */
+  min-width: 300px; /* Minimum width for smaller screens */
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for elevation */
+}
+
+/* Close Button */
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Hover Effect for Close Button */
+.close-btn:hover,
+.close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+  
+  .off{
+    background-color: lightgoldenrodyellow;
+  }
+
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Basic styling for the modal */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal content styling */
+.modal-content {
+  background-color: white;
+  padding: 36px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px; /* Max width for responsiveness */
+  position: fixed;
+  left: 34%;
+  top: -16%;}
+
+/* Close button styling */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+}
+
+
+/* Input field styling */
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Button styling */
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Additional styling for labels */
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 90%; /* Reduce modal width on small screens */
+  }
+}
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.inputs {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  margin-bottom: 15px;
+}
+
+.password-container .toggle-button {
+  position: absolute;
+  right: 10px;
+  top: 35%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #000;
+  padding: 0;
+  line-height: 1; /* Ensure the icon stays centered */
+}
+
+.password-container .toggle-button i {
+  color: #6c757d; /* Color of the eye icon */
+}
+
+.password-container .toggle-button:hover i {
+  color: #343a40; /* Color on hover */
+}
+
+.login-text{
+  font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.modal-hide {
+  display: none;
+}
+
+.modal-show {
+  display: block;
+}

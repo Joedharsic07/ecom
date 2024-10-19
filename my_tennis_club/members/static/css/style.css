@@ -1,0 +1,124 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.bg-img {
+    width: 100%;
+    height: 100vh; 
+    position: relative;
+    object-fit: cover;
+}
+
+.container {
+    width: 462px;
+    padding: 50px;
+    background-color: #000000;
+    opacity: 0.8;
+    border-radius: 10px;
+    /* box-shadow: #be6c3940 0px 14px 28px, #be6c3940 0px 10px 10px; */
+    line-height: 35px;
+    margin-top: 50px;
+    margin-right: 100px;
+        position: absolute;
+    right: 24%;
+    top: 40px;
+}
+
+/* Labels for Username and Password */
+.user-pass {
+    color: white;
+    font-size: 16px;
+}
+
+/* Submit Button */
+.button {
+    padding: 17px 0px 17px 4px;
+    width: 100%;
+    margin-top: 16px;
+    background-color: #9f6118;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer; /* Added for better user experience */
+}
+
+.button:hover {
+    background-color: #835119;
+}
+
+/* Login Heading Text */
+.login-text {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+/* Login Link */
+.login {
+    color: #0c86ff;
+    text-decoration: none;
+}
+
+.login:hover {
+    color: #005dba;
+    text-decoration: none;
+}
+
+.inputs {
+    width: 98%;
+    padding: 17px 0px 17px 6px;
+        border-radius: 10px;
+    border: 1px solid #ccc; 
+    margin-bottom: 15px; 
+}
+
+.forgotpassword {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #0c86ff;
+    text-decoration: none;
+}
+
+.forgotpassword:hover {
+    text-decoration: none;
+    color: #005dba;
+}
+.signup {
+    text-align: center;
+    color: white;
+}
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 23px;
+}
+
+/* Password Input Container */
+.password-container {
+    position: relative;
+    margin-bottom: 15px; 
+}
+
+/* Toggle Button for Password Visibility */
+.toggle-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000; /* Set color for better visibility */
+}
+
+/* Align Items Start Class */
+.align-items-start {
+    height: 500px;
+}

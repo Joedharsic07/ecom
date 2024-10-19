@@ -1,0 +1,94 @@
+.bg-img{
+    width: 100%;
+    position: relative;
+    height: 100vh; /* Sets the height to 100% of the viewport height */
+    object-fit: cover;
+   
+}
+.container {
+    background-color: #000000;
+    opacity: 0.8;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: #be6c3940 0px 14px 28px, #be6c3940 0px 10px 10px;
+    line-height:35px; 
+    margin-top: 100px;
+    
+width: 462px;
+    margin-right: 175px;
+    position: absolute;
+    right: 24%;
+    top: 40px;
+}
+.lable{
+    color: white;
+}
+.button{
+    padding: 2px;
+    width: 100%;
+    margin-top: 16px;
+    background-color: #9f6118;
+    color: white;
+    border-radius: 10px ;
+    border: none;
+}
+.button:hover{
+    background-color: #835119;
+}
+.login-text{
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+}
+.login{
+    color:  #0c86ff;;
+    text-decoration: none;
+}
+.login:hover{
+    color: rgb(3, 3, 192);
+    text-decoration: underline;
+}
+.inputs{
+    width: 100%;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.forgotpassword{
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #0c86ff;
+    text-decoration: none;
+}
+.forgotpassword:hover{
+    text-decoration: underline;
+    color: blue;
+}
+.signup{
+    text-align: center;
+    color: white;
+}
+.align-items-start{
+height: 500px;
+}
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 23px;
+}
+.password-container {
+    position: relative;
+}
+.toggle-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+}
