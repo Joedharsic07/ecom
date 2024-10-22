@@ -45,89 +45,83 @@
       </div>
 
     </div>
-    <div class="profile-dropdown">
-      <i class="fas fa-user profile-icon"></i>
-      <div class="dropdown-content">
-        {% if user.is_authenticated %}
-        <div>
-          <a class="dropdown-item" href="">
-            <i class="fas fa-user profile-icon"></i>
-            <span>Profile</span>
-          </a>
-        </div>
-        <hr class="divider my-1">
-        <!-- <div>
-          <a class="dropdown-item" href="{% url 'edit_profile' %}">
-            <i class="fas fa-edit me-2"></i>
-            <span>Edit Profile</span>
-          </a>
-        </div> -->
-        <div class="dropdown-item">
-
-          <a href="#" class="logout" id="changePasswordLink">
-            <i class="fas fa-lock me-2"></i>
-            <span>Change Password</span>
-          </a>
-        </div>
-        <!-- change password -->
-        <div id="changePasswordModal" class="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <form id="changePasswordForm">
-              {% csrf_token %}
-              <div class="login-text">Change Password</div>
-
-              <label for="currentPassword" class="user-pass">Old Password</label>
-              <div class="password-container">
-                <input type="password" id="currentPassword" name="old_password" class="inputs"
-                  placeholder="Enter your Old password">
-                <button type="button" id="toggleCurrentPassword" class="toggle-button">
-                  <i class="fa fa-eye-slash"></i>
-                </button>
-              </div>
-              <div id="oldPasswordError" class="text-danger"></div>
-
-              <label for="newPassword" class="user-pass">New Password</label>
-              <div class="password-container">
-                <input type="password" id="newPassword" name="new_password1" class="inputs"
-                  placeholder="Enter new password">
-                <button type="button" id="toggleNewPassword" class="toggle-button">
-                  <i class="fa fa-eye-slash"></i>
-                </button>
-              </div>
-              <div id="newPasswordError" class="text-danger"></div>
-              <div id="newPasswordLengthError" class="text-danger"></div>
-
-              <label for="confirmPassword" class="user-pass">Confirm Password</label>
-              <div class="password-container">
-                <input type="password" id="confirmPassword" name="new_password2" class="inputs"
-                  placeholder="Confirm new password">
-                <button type="button" id="toggleConfirmPassword" class="toggle-button">
-                  <i class="fa fa-eye-slash"></i>
-                </button>
-              </div>
-
-              <button class="button" type="submit">Change Password</button>
-            </form>
-          </div>
-        </div>
-
-        <div class="dropdown-item" id="logout-btn">
-          <a href="{% url 'logout' %}" class="logout">
-            <i class="fas fa-sign-out-alt me-2"></i>
-            <span>Logout</span>
-          </a>
-        </div>
-        {% else %}
-        <p>Please <a href="{% url 'login' %}">login</a> to see your profile.</p>
-        {% endif %}
-      </div>
-
+<div class="profile-dropdown">
+  <i class="fas fa-user profile-icon"></i>
+  <div class="dropdown-content">
+    {% if user.is_authenticated %}
+    <div>
+      <a class="dropdown-item" href="{% url 'profile' %}">
+        <i class="fas fa-user me-2"></i>
+        <span>Profile</span>
+      </a>
     </div>
+
+    <hr class="divider my-1">
+
+    <div>
+      <a href="#" class="logout" id="changePasswordLink">
+        <i class="fas fa-lock me-2"></i>
+        <span>Change Password</span>
+      </a>
+    </div>
+
+    <hr class="divider my-1">
+
+    <div>
+      <a class="dropdown-item" href="{% url 'logout' %}">
+        <i class="fas fa-sign-out-alt me-2"></i>
+        <span>Logout</span>
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
 
   </div>
 
+<!-- change password -->
+<div id="changePasswordModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form id="changePasswordForm">
+      {% csrf_token %}
+      <div class="login-text">Change Password</div>
 
+      <label for="currentPassword" class="user-pass">Old Password</label>
+      <div class="password-container">
+        <input type="password" id="currentPassword" name="old_password" class="inputs"
+          placeholder="Enter your Old password">
+        <button type="button" id="toggleCurrentPassword" class="toggle-button">
+          <i class="fa fa-eye-slash"></i>
+        </button>
+      </div>
+      <div id="oldPasswordError" class="text-danger"></div>
+
+      <label for="newPassword" class="user-pass">New Password</label>
+      <div class="password-container">
+        <input type="password" id="newPassword" name="new_password1" class="inputs"
+          placeholder="Enter new password">
+        <button type="button" id="toggleNewPassword" class="toggle-button">
+          <i class="fa fa-eye-slash"></i>
+        </button>
+      </div>
+      <div id="newPasswordError" class="text-danger"></div>
+      <div id="newPasswordLengthError" class="text-danger"></div>
+
+      <label for="confirmPassword" class="user-pass">Confirm Password</label>
+      <div class="password-container">
+        <input type="password" id="confirmPassword" name="new_password2" class="inputs"
+          placeholder="Confirm new password">
+        <button type="button" id="toggleConfirmPassword" class="toggle-button">
+          <i class="fa fa-eye-slash"></i>
+        </button>
+      </div>
+
+      <button class="button" type="submit">Change Password</button>
+    </form>
+  </div>
+</div>
 
   <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
     <div class="carousel-inner">

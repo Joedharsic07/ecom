@@ -16,6 +16,8 @@ from django.contrib.auth import authenticate, login
 from .models import CustomUser
 from django.http import JsonResponse
 from django.views import View
+from django.views.generic import DetailView
+
 
 def send_otp_to_email(email):
     otp_code = str(random.randint(100000, 999999))  
@@ -241,8 +243,8 @@ class editprofileview(LoginRequiredMixin,View):
     def post(self,request):
         user = request.user
         user.username = request.POST.get('username')
-        user.firstname=request.POST.get('first_name')
-        user.lasttname=request.POST.get('last_name')
+        user.first_name=request.POST.get('first_name')
+        user.last_name=request.POST.get('last_name')
         user.email = request.POST.get('email')
         if request.FILES.get('profile_picture'):
             user.profile_picture = request.FILES['profile_picture']
@@ -279,3 +281,11 @@ def change_password(request):
             return JsonResponse({'success': False, 'error': str(e)}, status=500)
 
     return JsonResponse({'success': False, 'message': 'Invalid request method.'}, status=400)
+
+class UserProfileView(LoginRequiredMixin, DetailView):
+    model = CustomUser
+    template_name = 'profile.html'
+    context_object_name = 'user_profile'
+
+    def get_object(self):
+        return get_object_or_404(CustomUser, email=self.request.user.email)

@@ -28,7 +28,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=30, blank=True)
-    profile_picture = models.ImageField(upload_to=user_profile_pic_path, default='default_profile_pic.jpg')
+    profile_picture = models.ImageField(upload_to=user_profile_pic_path, default='default_profile_pic.jpg' )
     otp = models.CharField(max_length=6,blank=True,null=True)
     otp_verified = models.BooleanField(default=False) 
     USERNAME_FIELD = 'email'

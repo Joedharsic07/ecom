@@ -101,6 +101,7 @@
 .logout{
     text-decoration: none;
     color: black;
+    padding-left: 10px;
 }
 .fa-sign-out-alt{
   color: black;

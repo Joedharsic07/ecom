@@ -111,41 +111,43 @@ body {
 .required-star {
     color: red;
 }
-/* Add this CSS to your stylesheet */
 .profile-pic-container {
-    position: relative; /* For positioning the camera icon */
-    margin-bottom: 20px; /* Space below the profile picture */
+    position: relative; 
+    margin-bottom: 20px; 
 }
 
 .profile-pic-wrapper {
-    position: relative; /* Required for absolute positioning of the icon */
-    display: inline-block; /* Ensure the wrapper fits the image */
+    position: relative; 
+    display: inline-block; 
+    overflow: hidden; 
+    width: 150px; 
+    height: 150px;
 }
 
 .profile-pic {
-    width: 100px; /* Set width of the profile picture */
-    height: 100px; /* Set height of the profile picture */
-    border-radius: 50%; /* Make the image circular */
-    object-fit: cover; /* Cover the image without stretching */
-    border: 2px solid #ddd; /* Optional: Add a border around the profile picture */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
 }
 
 .upload-icon {
-    position: absolute; /* Position the icon over the image */
-    bottom: 0; /* Position at the bottom */
-    right: 0; /* Position to the right */
-    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-    border-radius: 50%; /* Make the icon circular */
-    padding: 5px; /* Space around the icon */
-    cursor: pointer; /* Change cursor to indicate it's clickable */
-    display: flex; /* Center the icon */
-    justify-content: center; /* Center the icon */
-    align-items: center; /* Center the icon */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow */
+    position: absolute; 
+    bottom: 0; 
+    right: 0; 
+    background: rgba(255, 255, 255, 0.8); 
+    border-radius: 50%; 
+    padding: 5px; 
+    cursor: pointer; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
 }
 
 .upload-icon i {
-    color: #555; /* Change icon color */
-    font-size: 24px; /* Adjust icon size */
+    color: #555; 
+    font-size: 24px;    
 }
 
