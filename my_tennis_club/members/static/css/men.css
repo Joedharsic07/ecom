@@ -195,8 +195,6 @@
     font-size: 0.9rem;
     font-weight: 600;
   }
-  
-  /* From Uiverse.io by Shaidend */ 
   .InputContainer {
     height: 40px;
     display: flex;
@@ -524,13 +522,13 @@
     cursor: pointer;
   } */
   
-  .fa {
+  /* .fa {
     padding: 20px;
     font-size: 30px;
     width: 50px;
     text-align: center;
     text-decoration: none;
-  }
+  } */
   
   .fa:hover {
     opacity: 0.7;
@@ -808,19 +806,7 @@
     margin-top: 9px;
 
 }
-.nav-link-1 {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 18px;
-  }
-  
-  .nav-link-1:hover {
-    background-color: #495057;
-    color: #ffffff; 
-  }
-  
+
   .name {
     color: white;
     font-size: 20px;
@@ -890,7 +876,7 @@ h1 {
   cursor: pointer;
 }
 
-.dropdown-menu{
+/* .dropdown-menu{
   position: absolute;
   z-index: 1000;
   display: none;
@@ -906,7 +892,15 @@ h1 {
   border: 1px solid rgba(0, 0, 0, .15);
   border-radius: .25rem;
 
+} */
+.dropdown-item {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
 }
-
 
 

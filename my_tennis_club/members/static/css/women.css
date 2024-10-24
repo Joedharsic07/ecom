@@ -21,18 +21,7 @@ body {
     margin-top: 9px;
 
 }
-.nav-link-1 {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 18px;
-  }
-  
-  .nav-link-1:hover {
-    background-color: #495057;
-    color: #ffffff; 
-  }
+
   
   .name {
     color: white;

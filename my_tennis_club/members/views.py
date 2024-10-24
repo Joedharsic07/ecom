@@ -144,7 +144,6 @@ class ForgotPasswordView(View):
             'confirm_password': ''
         }
         return render(request, 'forgotpassword.html', context)
-
     def post(self, request):
         email = request.POST.get('email', '')
         new_password = request.POST.get('new_password', '')
@@ -152,7 +151,6 @@ class ForgotPasswordView(View):
         otp_verified = request.POST.get('otp_verified') == 'True'
         otp_sent = False
         errors = {}
-        
         email_exists = CustomUser.objects.filter(email=email).exists()
         if 'send_otp' in request.POST:
             if not email:
@@ -163,7 +161,6 @@ class ForgotPasswordView(View):
                 send_otp_to_email(email)
                 otp_sent = True
                 print(f"OTP sent to {email}")
-
         elif 'verify_otp' in request.POST:
             entered_otp = request.POST.get('otp')
             if email:
@@ -249,39 +246,36 @@ class editprofileview(LoginRequiredMixin,View):
         if request.FILES.get('profile_picture'):
             user.profile_picture = request.FILES['profile_picture']
         user.save()  
-        return redirect('home') 
+        return redirect('profile') 
         
-@login_required
-def change_password(request):
-    if request.method == 'POST' :
+class ChangePasswordView(LoginRequiredMixin, View):
+    def post(self, request, *args, **kwargs):
         old_password = request.POST.get('old_password')
         new_password = request.POST.get('new_password1')
         confirm_password = request.POST.get('new_password2')
 
         user = request.user
         errors = {}
-
         try:
             if not check_password(old_password, user.password):
                 errors['old_password'] = 'Old password is incorrect.'
+
             if new_password != confirm_password:
                 errors['new_password'] = 'New password and Confirm password do not match.'
+
             if len(new_password) < 8:
                 errors['new_password_length'] = 'New password must be at least 8 characters long.'
             if errors:
                 return JsonResponse({'success': False, 'errors': errors})
             user.set_password(new_password)
             user.save()
-
             update_session_auth_hash(request, user)
-
             return JsonResponse({'success': True, 'message': 'Password has been changed successfully!'})
-
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)}, status=500)
-
-    return JsonResponse({'success': False, 'message': 'Invalid request method.'}, status=400)
-
+    def get(self, request, *args, **kwargs):
+        return JsonResponse({'success': False, 'message': 'Invalid request method.'}, status=400)
+    
 class UserProfileView(LoginRequiredMixin, DetailView):
     model = CustomUser
     template_name = 'profile.html'

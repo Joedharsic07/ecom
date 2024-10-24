@@ -1,8 +1,15 @@
+body {
+    margin: 0px;
+    font-family: "Rubik", sans-serif;
+
+}
+
 .profile-pic {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
+    margin-left: 170px;
     margin-bottom: 20px;
 }
 
@@ -10,46 +17,55 @@
     max-width: 600px;
     margin: 0 auto;
     text-align: center;
+    margin-top: 50px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    border: 1px solid #d4d4d9;
+    padding: 50px;
+    padding-bottom: 5px;
+    background-color: whitesmoke;
+    border-radius: 20px;
 }
 
 p {
     font-size: 18px;
     margin: 10px 0;
 }
-.btna{
+
+.btna {
     color: black;
     text-decoration: none;
 }
-.table-d{
+
+.table-d {
     font-size: 20px;
     padding-bottom: 10px;
     text-align: end;
 }
-.table-d1{
+
+.table-d1 {
     font-size: 20px;
     text-align: left;
-}
-.profile{
-    border: 1px solid #d4d4d9;
-    padding: 42px 200px ;
 }
 .profile-table {
     width: 100%;
     margin: 0 auto;
+    margin-top: 133px;
 }
 
 .profile-label {
     font-weight: bold;
     width: 120px;
     padding-right: 10px;
-    font-size:20px;
+    font-size: 20px;
 }
 
 .profile-table td {
     padding: 10px;
-    font-size:23px;
+    font-size: 21px;
+    
 }
-.button{
+
+.button {
     cursor: pointer;
     text-transform: uppercase;
     padding: 15px;
@@ -59,9 +75,143 @@ p {
     margin: 30px 24px;
     color: white;
     border-radius: 30px;
-    width:50%;
+    width: 50%;
     border: none;
 }
-.button:hover{
+
+.button:hover {
     background-color: #0074f5;
 }
+
+.name {
+    color: white;
+    font-size: 20px;
+    padding-right: 20px;
+    margin-bottom: 0px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+.bar {
+    display: flex;
+    background-color: #343a40;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.bar-ul {
+    display: inline-flex;
+    list-style-type: none;
+    line-height: 1;
+    margin-top: 9px;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.nav-link:hover {
+    background-color: #495057;
+    color: #ffffff;
+}
+
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-icon {
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 200px;
+}
+
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.profile-icon-small {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.logout {
+    text-decoration: none;
+    color: black;
+    padding-left: 8px;
+}
+
+.fa-sign-out-alt {
+    color: black;
+}
+
+.username {
+    color: #333;
+    cursor: pointer;
+}
+
+.dropdown-item {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.divider {
+    margin: 0;
+    border-top: 1px solid #dee2e6;
+}
+@media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: column;
+    }
+  
+    .nav-link {
+      padding: 10px;
+    }
+  
+    .InputContainer {
+      width: 100%;
+    }
+  
+    .dropdown-content {
+      width: 100%;
+      right: 0;
+    }
+  }
+
+  

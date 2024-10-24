@@ -1,9 +1,8 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'navbase.html' %}
 
-<head>
-  <meta charset="UTF-8">
+{% load static %}
+
+{% block extra_css %} 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playwrite+AT:ital,wght@0,100..400;1,100..400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
@@ -12,117 +11,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/home.css' %}">
-
-</head>
-<title>
+{% endblock %}
+  {% block title %}
   Joe Shopping
-</title>
-</head>
-
-<body>
-
-  <div class="bar">
-
-    <div style="display: flex; ">
-      <div>
-        <h5 class="name">Style Haven</h5>
-      </div>
-      <div>
-        <ul class="bar-ul">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'home' %}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'men' %}">Men</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'women' %}">Women</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./kids.html">Kids</a>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-<div class="profile-dropdown">
-  <i class="fas fa-user profile-icon"></i>
-  <div class="dropdown-content">
-    {% if user.is_authenticated %}
-    <div>
-      <a class="dropdown-item" href="{% url 'profile' %}">
-        <i class="fas fa-user me-2"></i>
-        <span>Profile</span>
-      </a>
-    </div>
-
-    <hr class="divider my-1">
-
-    <div>
-      <a href="#" class="logout" id="changePasswordLink">
-        <i class="fas fa-lock me-2"></i>
-        <span>Change Password</span>
-      </a>
-    </div>
-
-    <hr class="divider my-1">
-
-    <div>
-      <a class="dropdown-item" href="{% url 'logout' %}">
-        <i class="fas fa-sign-out-alt me-2"></i>
-        <span>Logout</span>
-      </a>
-    </div>
-    {% endif %}
-  </div>
-</div>
-
-
-  </div>
-
-<!-- change password -->
-<div id="changePasswordModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <form id="changePasswordForm">
-      {% csrf_token %}
-      <div class="login-text">Change Password</div>
-
-      <label for="currentPassword" class="user-pass">Old Password</label>
-      <div class="password-container">
-        <input type="password" id="currentPassword" name="old_password" class="inputs"
-          placeholder="Enter your Old password">
-        <button type="button" id="toggleCurrentPassword" class="toggle-button">
-          <i class="fa fa-eye-slash"></i>
-        </button>
-      </div>
-      <div id="oldPasswordError" class="text-danger"></div>
-
-      <label for="newPassword" class="user-pass">New Password</label>
-      <div class="password-container">
-        <input type="password" id="newPassword" name="new_password1" class="inputs"
-          placeholder="Enter new password">
-        <button type="button" id="toggleNewPassword" class="toggle-button">
-          <i class="fa fa-eye-slash"></i>
-        </button>
-      </div>
-      <div id="newPasswordError" class="text-danger"></div>
-      <div id="newPasswordLengthError" class="text-danger"></div>
-
-      <label for="confirmPassword" class="user-pass">Confirm Password</label>
-      <div class="password-container">
-        <input type="password" id="confirmPassword" name="new_password2" class="inputs"
-          placeholder="Confirm new password">
-        <button type="button" id="toggleConfirmPassword" class="toggle-button">
-          <i class="fa fa-eye-slash"></i>
-        </button>
-      </div>
-
-      <button class="button" type="submit">Change Password</button>
-    </form>
-  </div>
-</div>
-
+{% endblock %}
+{% block content %}
   <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -145,8 +38,7 @@
           <h5 class="carousel-h">Women Fashion Wear <br>on sale</h5>
           <p class="carousel-p">Explore new horizons in fashion. <br>Every outfit is a step towards discovering the
             confident, stylish you.</p>
-          <button class=carousel-button style="border-radius: 10px;" onclick="window.location.href='./Women.html'"> Shop
-            Now</button>
+          <button class=carousel-button style="border-radius: 10px;" onclick="window.location.href='./Women.html'"> Shop Now</button>
         </div>
       </div>
       <div class="carousel-item">
@@ -169,9 +61,6 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-
-
-
   <div class="tc" style="margin-top: 80px; border-radius: 10px;">
     <center>
       <h3 class="h1">women collections</h3>
@@ -363,8 +252,6 @@
       <!-- <button class="offbtn"> Shop Now</button> -->
     </div>
   </div>
-
-
   <footer class="footer">
     <div class="container">
       <div class="row">
@@ -412,120 +299,11 @@
       </div>
     </div>
   </footer>
-
+  {% endblock %}
+  {% block extra_js %}
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
-  <script>
-// Toggle dropdown visibility on profile icon click
-document.querySelector(".profile-icon").addEventListener("click", function () {
-    var dropdown = document.querySelector(".dropdown-content");
-    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-});
-
-// Close dropdown if clicking outside
-window.addEventListener("click", function(event) {
-    var dropdown = document.querySelector(".dropdown-content");
-    if (!event.target.closest(".profile-dropdown")) {
-        dropdown.style.display = "none";
-    }
-});
-
-// Show change password modal when clicking 'Change Password'
-document.getElementById('changePasswordLink').onclick = function (event) {
-    event.preventDefault(); // Prevent default link behavior
-    document.getElementById('changePasswordModal').style.display = 'block';
-};
-
-// Close modal when 'X' is clicked or outside the modal
-document.querySelector('.close').onclick = function () {
-    document.getElementById('changePasswordModal').style.display = 'none';
-};
-
-// Close modal when clicking outside the modal content
-window.onclick = function (event) {
-    if (event.target === document.getElementById('changePasswordModal')) {
-        document.getElementById('changePasswordModal').style.display = 'none';
-    }
-};
-
-// Toggle password visibility in password fields
-document.getElementById('toggleCurrentPassword').onclick = function () {
-    let input = document.getElementById('currentPassword');
-    togglePassword(input, this);
-};
-
-document.getElementById('toggleNewPassword').onclick = function () {
-    let input = document.getElementById('newPassword');
-    togglePassword(input, this);
-};
-
-document.getElementById('toggleConfirmPassword').onclick = function () {
-    let input = document.getElementById('confirmPassword');
-    togglePassword(input, this);
-};
-
-function togglePassword(input, toggleButton) {
-    if (input.type === 'password') {
-        input.type = 'text';
-        toggleButton.innerHTML = '<i class="fa fa-eye"></i>';
-    } else {
-        input.type = 'password';
-        toggleButton.innerHTML = '<i class="fa fa-eye-slash"></i>';
-    }
-}
-
-
-    document.getElementById('changePasswordForm').onsubmit = function (event) {
-      event.preventDefault();  // Prevent the default form submission
-
-      const oldPassword = document.getElementById('currentPassword').value;
-      const newPassword1 = document.getElementById('newPassword').value;
-      const newPassword2 = document.getElementById('confirmPassword').value;
-      const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-
-      const formData = new FormData();
-      formData.append('old_password', oldPassword);
-      formData.append('new_password1', newPassword1);
-      formData.append('new_password2', newPassword2);
-
-      fetch('{% url "change_password_ajax" %}', {
-        method: 'POST',
-        headers: {
-          'X-CSRFToken': csrfToken
-        },
-        body: formData
-      })
-        .then(response => response.json())
-        .then(data => {
-          // Clear previous error messages
-          document.querySelectorAll('.text-danger').forEach(el => el.textContent = '');
-
-          if (data.success) {
-            // If password change is successful, show success message and close modal
-            alert(data.message);
-            document.getElementById('changePasswordModal').style.display = 'none';
-            // Optionally reload the page or update the UI
-            location.reload();
-          } else {
-            if (data.errors.old_password) {
-              document.getElementById('oldPasswordError').textContent = data.errors.old_password;
-            }
-            if (data.errors.new_password) {
-              document.getElementById('newPasswordError').textContent = data.errors.new_password;
-            }
-            if (data.errors.new_password_length) {
-              document.getElementById('newPasswordLengthError').textContent = data.errors.new_password_length;
-            }
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    };
-  </script>
-</body>
-
-</html>
+{% endblock %}

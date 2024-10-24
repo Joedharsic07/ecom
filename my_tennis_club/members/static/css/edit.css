@@ -2,6 +2,45 @@ body {
     font-family: "Poppins", sans-serif;
     margin: 0px;
 }
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0px;
+}
+
+.container-fluid {
+    display: flex; /* Use flexbox for layout */
+    height: 100vh; /* Full height */
+}
+
+
+
+.form-container {
+    display: flex; /* Center the form */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex: 1; /* Take up the remaining space */
+}
+
+.form-content {
+    width: 100%; /* Full width */
+    margin-top: 40px;
+    max-width: 400px; /* Limit width of form */
+    background-color:whitesmoke; /* Form background color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Inner spacing */
+    max-width: 500px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 23px;
+}
+
+/* Other existing styles remain the same */
 
 .bg-img {
     width: 100%;
@@ -27,7 +66,7 @@ body {
     padding:  10px;
     width: 100%;
     margin-top: 16px;
-    background-color:#7d97f4;
+    background-color:#3863fd;
     color: white;
     border-radius: 10px;
     border: none;
@@ -37,7 +76,7 @@ body {
 }
 
 .button:hover {
-    background-color: #687bbd;
+    background-color: #1c3eb9;
 }
 
 .login-text {
@@ -114,6 +153,7 @@ body {
 .profile-pic-container {
     position: relative; 
     margin-bottom: 20px; 
+    text-align: center;
 }
 
 .profile-pic-wrapper {
@@ -149,5 +189,8 @@ body {
 .upload-icon i {
     color: #555; 
     font-size: 24px;    
+}
+.container{
+    max-width: 33%;
 }
 
