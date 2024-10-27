@@ -595,13 +595,13 @@ body {
     cursor: pointer;
   }
   
-  .fa {
+  /* .fa {
     padding: 20px;
     font-size: 30px;
     width: 50px;
     text-align: center;
     text-decoration: none;
-  }
+  } */
   
   .fa:hover {
     opacity: 0.7;
@@ -708,7 +708,7 @@ body {
   
   .image-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Changed from 3 to 4 columns */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 20px;
     padding: 20px;
   }
@@ -776,31 +776,30 @@ body {
 }
 
 .time-box {
-  width: 80px; /* Width of each timer box */
-  height: 80px; /* Height of each timer box */
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-  border-radius: 10px; /* Rounded corners */
+  width: 80px; 
+  height: 80px; 
+  background-color: rgba(0, 0, 0, 0.7); 
+  border-radius: 10px; 
   display: flex;
-  flex-direction: column; /* Stack number and label vertically */
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-  border: 2px solid #ffffff; /* White border */
-  color: #ffffff; /* White text color */
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); 
+  border: 2px solid #ffffff; 
+  color: #ffffff; 
 }
-
 .time-box span {
-  font-size: 24px; /* Font size for time numbers */
-  font-weight: bold; /* Bold numbers */
+  font-size: 24px; 
+  font-weight: bold; 
 }
 
 .time-box small {
-  font-size: 12px; /* Font size for labels */
-  margin-top: 5px; /* Space between number and label */
+  font-size: 12px; 
+  margin-top: 5px; 
 }
 .products {
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
-  gap: 20px; /* Space between items */
-  justify-content: space-between; /* Adjust spacing between items */
+  flex-wrap: wrap; 
+  gap: 20px; 
+  justify-content: space-between; 
 }
