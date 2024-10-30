@@ -214,6 +214,9 @@ def men_view(request):
 def women_view(request):
     women_products = Product.objects.filter(category='women')  
     return render(request, 'women.html', {'products': women_products})
+def kids_view(request):
+    kids_products = Product.objects.filter(category='kids')  
+    return render(request, 'kids.html', {'products': kids_products})
 
 def product_detail(request, pk):
     product = get_object_or_404(Product, id=pk)

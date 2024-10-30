@@ -47,6 +47,7 @@ class Product(models.Model):
         ('jackets', 'Jackets'),
         ('men', 'Men'),
         ('women', 'Women'),
+        ('kids','Kids'),
     ]    
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)

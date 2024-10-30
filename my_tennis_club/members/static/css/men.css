@@ -36,7 +36,6 @@
   h5 {
     font-size: 1.25rem;
   }
-  /* Styling for the cart container */
   .cart {
     position: fixed;
     top: 0;
@@ -51,7 +50,6 @@
     transition: right 0.5s ease;
   }
   
-  /* Active state to slide in the cart */
   .cart-active {
     right: 0;
   }
@@ -408,7 +406,7 @@
   }
   
   .button {
-    display: flex; /* Enables flexbox for alignment */
+    display: flex; 
     width: 180px;
     height: 40px;
     background-color: #000000;
@@ -416,20 +414,20 @@
     border-radius: 50px;
     color: rgb(255, 255, 255);
     font-weight: 600;
-    align-items: center; /* Centers items vertically */
-    justify-content: center; /* Centers items horizontally */
+    align-items: center; 
+    justify-content: center; 
     cursor: pointer;
     margin-left: 0px;
   }
   
   .cart-icon {
-    font-size: 16px; /* Adjusts icon size if needed */
+    font-size: 16px;
   }
   
   
-  .button:hover {
+  /* .button:hover {
     background-color: #161515;
-  }
+  } */
   
   .cartIcon {
     width: 14px;
@@ -440,11 +438,11 @@
     fill: white;
   }
   
-  .button:active {
+  /* .button:active {
     transform: translate(2px, 0px);
     box-shadow: 0px 1px 0px rgb(139, 113, 255);
     padding-bottom: 1px;
-  }
+  } */
   
   .img-text2 {
     color: red;
@@ -549,31 +547,7 @@
   .drop-button:hover{
     background-color: #ED2F2F;
   }
-  
-  /* .footer{
-    background-color: #2C2C2C;
-    color: white;
-    padding: 40px 0;
-    position: relative;
-    top: 100px;}
-  .footer h5 {
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  .footer  {
-    color: #B0B0B0;
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .footer:hover {
-    color: #ffffff;
-  }
-  .footer hr {
-    border-top: 2px solid #ffffff;
-    width: 50px;
-    margin-left: 0;
-    margin-bottom: 20px;
-  } */
+
   .social-icons a {
     color: white;
     font-size: 24px;
@@ -587,7 +561,6 @@
   
   }
   
-  /* Existing styles here */
   
   .header-container {
     display: flex;
@@ -634,7 +607,7 @@
   
   .image-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Changed from 3 to 4 columns */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 20px;
     padding: 20px;
   }
@@ -680,7 +653,7 @@
     overflow-y: auto;
     width: 100%;
     z-index: 1000;
-    display: none; /* Hidden by default */
+    display: none; 
   }
   
   .suggestion-item {
@@ -693,7 +666,7 @@
   }
   
   .brd.highlighted {
-    border: 2px solid #f00; /* Highlight border */
+    border: 2px solid #f00; 
   }
   
   .timer-boxes {
@@ -706,31 +679,31 @@
   }
   
   .time-box {
-    width: 80px; /* Width of each timer box */
-    height: 80px; /* Height of each timer box */
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    border-radius: 10px; /* Rounded corners */
+    width: 80px;
+    height: 80px; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    border-radius: 10px;
     display: flex;
-    flex-direction: column; /* Stack number and label vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-    border: 2px solid #ffffff; /* White border */
-    color: #ffffff; /* White text color */
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); 
+    border: 2px solid #ffffff; 
+    color: #ffffff; 
   }
   
   .time-box span {
-    font-size: 24px; /* Font size for time numbers */
-    font-weight: bold; /* Bold numbers */
+    font-size: 24px; 
+    font-weight: bold; 
   }
   
   .time-box small {
-    font-size: 12px; /* Font size for labels */
-    margin-top: 5px; /* Space between number and label */
+    font-size: 12px; 
+    margin-top: 5px; 
   }
   
   
-  /* Product Details styles */
+ 
   .product-details {
     display: none;
     position: fixed;
@@ -759,8 +732,17 @@
   .product-details p {
     margin: 10px 0;
   }
-  
-  .product-details .button {
+
+  /* .button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+  } */
+  .product-details  {
     background-color: #000;
     color: #fff;
     border: none;
@@ -841,19 +823,17 @@
     margin-bottom: 20px;
   }
 
-  /* styles.css */
-
-/* Container for products */
+ 
 .products {
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
-  gap: 20px; /* Space between items */
-  justify-content: space-between; /* Adjust spacing between items */
+  flex-wrap: wrap; 
+  gap: 20px; 
+  justify-content: space-between; 
 }
 
 .brd {
-  flex: 1 1 calc(25% - 20px); /* 25% width minus gap */
-  box-sizing: border-box; /* Include padding and border in width */
+  flex: 1 1 calc(25% - 20px); 
+  box-sizing: border-box; 
   border: 1px solid #ddd;
   padding: 10px;
   text-align: center;
@@ -868,13 +848,13 @@ h1 {
   text-align: center;
 }
 
-.button {
+/* .button {
   background-color: #151515;
   color: white;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-}
+} */
 
 /* .dropdown-menu{
   position: absolute;

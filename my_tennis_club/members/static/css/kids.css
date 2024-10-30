@@ -6,19 +6,6 @@ body {
     display: flex;
     align-items: center;
   }
-  .nav-link-1 {
-    color: yellow;
-    text-decoration: none;
-    font-size: 18px;
-  }
-  
-  .nav-link-1:hover {
-    color: yellow;
-    text-decoration: none;
-  }
-  .nav-item{
-    padding: 0px;
-  }
   .ul{
      display: flex; /* Makes the list items horizontal */
     gap: 20px; /* Adjusts the space between list items */
@@ -72,15 +59,41 @@ body {
   .form-inline{
     display: flex;
   }
+  
   .name {
     color: white;
-    font-size: 18px;
+    font-size: 20px;
     padding-right: 20px;
     margin-bottom: 0px;
-  }
-  h5 {
-    font-size: 1.25rem;
-  }
+    cursor: pointer;
+    padding: 4px;
+}
+  .text-overlay {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+.motivational-text {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.highlight {
+    position: relative;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-top: 20px;
+    right: 238px;
+    top: 128px;
+    left: -331px;
+    font-size: 45px;
+}
+
   /* Styling for the cart container */
   .cart {
     position: fixed;
@@ -95,14 +108,10 @@ body {
     z-index: 100;
     transition: right 0.5s ease;
   }
-  
-  /* Active state to slide in the cart */
-  .cart-active {
+    .cart-active {
     right: 0;
   }
-  
-  /* Cart title */
-  .cart-title {
+    .cart-title {
     text-align: center;
     font-size: 1.8rem;
     font-weight: 600;
@@ -111,9 +120,7 @@ body {
     border-bottom: 1px solid #ddd;
     padding-bottom: 10px;
   }
-  
-  /* Styling for each product in the cart */
-  .cart-box {
+    .cart-box {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -128,8 +135,6 @@ body {
     object-fit: cover;
     border-radius: 8px;
   }
-  
-  /* Styling for product details */
   .detail-box {
     flex-grow: 1;
     display: flex;
@@ -326,14 +331,6 @@ body {
     margin-top: 110px;
   }
   
-  .log-2-container {
-    position: relative;
-  }
-  
-  .log-2 {
-    width: 100%;
-    margin-top: 82px;
-  }
   
   .sale1 {
     width: 100%;
@@ -769,8 +766,8 @@ body {
 }
 
 .log-2 {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: 800px;
 }
 
 .image-container {
@@ -778,18 +775,14 @@ body {
   display: inline-block;
 }
 
-.log-2 {
-  width: 100%;
-  height: auto;
-}
 
 .timer-boxes {
-  position: relative;
-  top: -300px;
-  left: 300px;
-  display: flex;
-  gap: 64px;
-  width:500px;
+    position: relative;
+    top: -405px;
+    left: 300px;
+    display: flex;
+    gap: 64px;
+    width: 500px;
 }
 
 .time-box {

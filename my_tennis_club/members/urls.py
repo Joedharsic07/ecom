@@ -13,5 +13,6 @@ urlpatterns = [
     path('change-password/', ChangePasswordView.as_view(), name='change_password'),   
     path('product/<int:pk>/', views.product_detail, name='product_detail'),
     path('category/<str:category_name>/', views.category_page, name='category_page'),
-    path('women/', views.women_view, name='women'),    
+    path('women/', views.women_view, name='women'),   
+    path('kids/', views.kids_view, name='kids'),  
 ]
