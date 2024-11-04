@@ -2,208 +2,228 @@
 {% load static %}
 {% block extra_css %}
 
-    <link rel="stylesheet" href="{% static 'css/kids.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Kids</title>
+<link rel="stylesheet" href="{% static 'css/kids.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<title>Kids</title>
 {% endblock %}
 {% block title %}
 Joe Shopping
 {% endblock %}
-    {%block content %}
-    
-        <div>
-            <img src="{% static 'img/Kids-bg.jpg'%}" alt="bg" class="log-2">
-        </div>
-            <div class="text-overlay">
-                <p class="motivational-text highlight">Explore the Latest Trends in Kids' Fashion!</p>
-            </div>
-            <div class="timer-boxes">
-                <div class="time-box">
-                    <span id="hours">00</span>
-                    <small>Hours</small>
-                </div>
-                <div class="time-box">
-                    <span id="minutes">00</span>
-                    <small>Minutes</small>
-                </div>
-                <div class="time-box">
-                    <span id="seconds">00</span>
-                    <small>Seconds</small>
-                </div>
-            </div>
-        <h3 class="heading">Best Collection for kids</h3>
-        <div class="container">
-            <hr>
-        </div>
+{%block content %}
 
-
-
-    <h3 class="shop-category">
-        Shop by category
-    </h3>
-    <div class="container">
-        <hr>
+<div>
+    <img src="{% static 'img/Kids-bg.jpg'%}" alt="bg" class="log-2">
+</div>
+<div class="text-overlay">
+    <p class="motivational-text highlight">Explore the Latest Trends in Kids' Fashion!</p>
+</div>
+<div class="timer-boxes">
+    <div class="time-box">
+        <span id="hours">00</span>
+        <small>Hours</small>
     </div>
-    <div class="image-grid container">
-        <div class="grid-item">
-            <img class="category-img" src="{% static 'img/kids-category-1.jpg'%}" alt="Image 1">
-            <p class="image-name">Tops & Tees</p>
-        </div>
-        <div class="grid-item">
-            <img src="{% static 'img/kids-category-2.webp'%}" alt="Image 2">
-            <p class="image-name">Dresses & Skirts</p>
-        </div>
-        <div class="grid-item">
-            <img src="{%static 'img/kids-category-3.jpg'%}" alt="Image 3">
-            <p class="image-name">Sleepwears</p>
-        </div>
-        <div class="grid-item">
-            <img src="{% static 'img/kids-category-4.webp'%}" alt="Image 4">
-            <p class="image-name">Activewear</p>
-        </div>
+    <div class="time-box">
+        <span id="minutes">00</span>
+        <small>Minutes</small>
     </div>
-    <h3 class="shop-category">
-        Most liked brands
-    </h3>
-    <div class="container">
-        <hr>
+    <div class="time-box">
+        <span id="seconds">00</span>
+        <small>Seconds</small>
     </div>
-    <div class="marquee container">
+</div>
+<h3 class="heading">Best Collection for kids</h3>
+<div class="container">
+    <hr>
+</div>
 
-        <div>
-            <img src="{% static 'img/pngegg (2).png'%}" width="50px" height="50px" alt="marquee">
+<div class="container" style="max-width: 1500px;">
+    <div class="products1">
+        {% if products %}
+        {% for product in products %}
+        <div class="brd1" data-id="{{ product.id }}" data-item="{{ product.name }}" data-price="{{ product.price }}"
+            data-image="{{ product.image.url }}" data-description="{{ product.description }}"
+            data-lnk="{% url 'product_detail' product.id %}">
+            <a href="{% url 'product_detail' product.pk %}"> <img src="{{ product.image.url }}" class="b11"
+                    alt="{{ product.name }}"> </a>
+            <h5 class="crdh1">{{ product.name }}</h5>
+            <p class="price1">{{product.description}} </p>
+            <p class="price1">MRP. <del>Rs. {{product.discount}}</del> Rs. {{ product.price }}</p>
+            <center><button class="button1 shop-now">Add To Cart <i
+                        class="fa-solid fa-cart-shopping cart-icon"></i></button></center>
         </div>
-        <div>
-            <img src="{% static 'img/klipartz.com (8).png'%}" width="100px" height="30px" alt="marquee">
-        </div>
-        <div>
-            <img src="{% static 'img/klipartz.com (2).png'%}" width="98px" height="72px" alt="marquee">
-        </div>
-        <div>
-            <img src="{% static 'img/pngegg-removebg-preview.png'%}" width="144px" height="110px" alt="marquee">
-        </div>
-        <div>
-            <img src="{% static 'img/pngegg (1).png'%}" width="145px" height="30px" alt="marquee">
-        </div>
-        <div>
-            <img src="{% static 'img/klipartz.com (6).png'%}" width="160px" height="50px" alt="marquee">
-        </div>
-        <!-- <div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No products found</p>
+    {% endif %}
+</div>
+
+<h3 class="shop-category">
+    Shop by category
+</h3>
+<div class="container">
+    <hr>
+</div>
+<div class="image-grid container">
+    <div class="grid-item">
+        <img class="category-img" src="{% static 'img/kids-category-1.jpg'%}" alt="Image 1">
+        <p class="image-name">Tops & Tees</p>
+    </div>
+    <div class="grid-item">
+        <img src="{% static 'img/kids-category-2.webp'%}" alt="Image 2">
+        <p class="image-name">Dresses & Skirts</p>
+    </div>
+    <div class="grid-item">
+        <img src="{%static 'img/kids-category-3.jpg'%}" alt="Image 3">
+        <p class="image-name">Sleepwears</p>
+    </div>
+    <div class="grid-item">
+        <img src="{% static 'img/kids-category-4.webp'%}" alt="Image 4">
+        <p class="image-name">Activewear</p>
+    </div>
+</div>
+<h3 class="shop-category">
+    Most liked brands
+</h3>
+<div class="container">
+    <hr>
+</div>
+<div class="marquee container">
+
+    <div>
+        <img src="{% static 'img/pngegg (2).png'%}" width="50px" height="50px" alt="marquee">
+    </div>
+    <div>
+        <img src="{% static 'img/klipartz.com (8).png'%}" width="100px" height="30px" alt="marquee">
+    </div>
+    <div>
+        <img src="{% static 'img/klipartz.com (2).png'%}" width="98px" height="72px" alt="marquee">
+    </div>
+    <div>
+        <img src="{% static 'img/pngegg-removebg-preview.png'%}" width="144px" height="110px" alt="marquee">
+    </div>
+    <div>
+        <img src="{% static 'img/pngegg (1).png'%}" width="145px" height="30px" alt="marquee">
+    </div>
+    <div>
+        <img src="{% static 'img/klipartz.com (6).png'%}" width="160px" height="50px" alt="marquee">
+    </div>
+    <!-- <div>
             <img src="./klipartz.com (7).png" width="50px" height="50px" alt="marquee">
         </div> -->
-    </div>
+</div>
 
+</div>
+<div class="container-acc">
+    <div class="ACCESSORIES">
+        <h3 class="acc1">Every Day Essentials</h3>
     </div>
-    <div class="container-acc">
-        <div class="ACCESSORIES">
-            <h3 class="acc1">Every Day Essentials</h3>
-        </div>
-        <div class="container">
-            <hr>
-        </div>
+    <div class="container">
+        <hr>
     </div>
+</div>
+</div>
+<div class="container acc2">
+    <div class="cardd" style="width: 286.4px;">
+        <img src="{% static 'img/acc-2.webp'%}" class="card-img" alt="Card image">
     </div>
-    <div class="container acc2">
-        <div class="cardd" style="width: 286.4px;">
-            <img src="{% static 'img/acc-2.webp'%}" class="card-img" alt="Card image">
-        </div>
-        <div class="cardd" style="width: 286.4px;">
-            <img src="{% static 'img/acc-3.png'%}" class="card-img" alt="Card image">
-        </div>
-        <div class="cardd" style="width: 286.4px;">
-            <img src="{% static 'img/acc-4.webp'%}" class="card-img" alt="Card image">
-        </div>
-        <div class="cardd" style="width: 286.4px;">
-            <img src="{% static 'img/acc-5.webp'%}" class="card-img" alt="Card image">
-        </div>
+    <div class="cardd" style="width: 286.4px;">
+        <img src="{% static 'img/acc-3.png'%}" class="card-img" alt="Card image">
     </div>
+    <div class="cardd" style="width: 286.4px;">
+        <img src="{% static 'img/acc-4.webp'%}" class="card-img" alt="Card image">
+    </div>
+    <div class="cardd" style="width: 286.4px;">
+        <img src="{% static 'img/acc-5.webp'%}" class="card-img" alt="Card image">
+    </div>
+</div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>Company</h5>
-                    <hr>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="nav-link">About Us</a></li>
-                        <li><a href="#" class="nav-link">Our Services</a></li>
-                        <li><a href="#" class="nav-link">Privacy Policy</a></li>
-                        <li><a href="#" class="nav-link">Affiliate Program</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h5>Get Help</h5>
-                    <hr>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="nav-link">FAQ</a></li>
-                        <li><a href="#" class="nav-link">Shipping</a></li>
-                        <li><a href="#" class="nav-link">Returns</a></li>
-                        <li><a href="#" class="nav-link">Order Status</a></li>
-                        <li><a href="#" class="nav-link">Payment Options</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h5>Online Shop</h5>
-                    <hr>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="nav-link">Watch</a></li>
-                        <li><a href="#" class="nav-link">Bag</a></li>
-                        <li><a href="#" class="nav-link">Shoes</a></li>
-                        <li><a href="#" class="nav-link">Dress</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h5>Follow Us</h5>
-                    <hr>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>Company</h5>
+                <hr>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="nav-link">About Us</a></li>
+                    <li><a href="#" class="nav-link">Our Services</a></li>
+                    <li><a href="#" class="nav-link">Privacy Policy</a></li>
+                    <li><a href="#" class="nav-link">Affiliate Program</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Get Help</h5>
+                <hr>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="nav-link">FAQ</a></li>
+                    <li><a href="#" class="nav-link">Shipping</a></li>
+                    <li><a href="#" class="nav-link">Returns</a></li>
+                    <li><a href="#" class="nav-link">Order Status</a></li>
+                    <li><a href="#" class="nav-link">Payment Options</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Online Shop</h5>
+                <hr>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="nav-link">Watch</a></li>
+                    <li><a href="#" class="nav-link">Bag</a></li>
+                    <li><a href="#" class="nav-link">Shoes</a></li>
+                    <li><a href="#" class="nav-link">Dress</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Follow Us</h5>
+                <hr>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
-    </footer>
-    {% endblock %}
-    {% block extra_js %}
-    <script>
-        const cartIcon = document.querySelector('.fa-cart-shopping');
-        const cart = document.querySelector('.cart');
-        const cartClose = document.querySelector('#cart-close');
-        const cartContent = document.querySelector('.cart-content');
-        const cartCount = document.querySelector('#cart-count');
-        const totalPriceElem = document.querySelector('.total-price');
-        let itemList = [];
+    </div>
+</footer>
+{% endblock %}
+{% block extra_js %}
+<script>
+    const cartIcon = document.querySelector('.fa-cart-shopping');
+    const cart = document.querySelector('.cart');
+    const cartClose = document.querySelector('#cart-close');
+    const cartContent = document.querySelector('.cart-content');
+    const cartCount = document.querySelector('#cart-count');
+    const totalPriceElem = document.querySelector('.total-price');
+    let itemList = [];
 
-        // Toggle cart visibility
-        cartIcon.addEventListener('click', () => {
-            cart.classList.toggle('cart-active');
-        });
+    // Toggle cart visibility
+    cartIcon.addEventListener('click', () => {
+        cart.classList.toggle('cart-active');
+    });
 
-        cartClose.addEventListener('click', () => {
-            cart.classList.remove('cart-active');
-        });
+    cartClose.addEventListener('click', () => {
+        cart.classList.remove('cart-active');
+    });
 
-        function addCart(event) {
-            const itemElement = event.currentTarget.closest('.brd');
-            const title = itemElement.getAttribute('data-item');
-            const price = itemElement.getAttribute('data-price');
-            const imgsrc = itemElement.getAttribute('data-image');
+    function addCart(event) {
+        const itemElement = event.currentTarget.closest('.brd1');
+        const title = itemElement.getAttribute('data-item');
+        const price = itemElement.getAttribute('data-price');
+        const imgsrc = itemElement.getAttribute('data-image');
 
-            const existingItem = itemList.find(item => item.title === title);
-            if (existingItem) {
-                alert('Item already in cart!');
-                return;
-            }
-
-            itemList.push({ title, price, imgsrc, quantity: 1 });
-            updateCart();
+        const existingItem = itemList.find(item => item.title === title);
+        if (existingItem) {
+            alert('Item already in cart!');
+            return;
         }
 
-        function createCartProduct(title, price, imgsrc, quantity) {
-            return `
+        itemList.push({ title, price, imgsrc, quantity: 1 });
+        updateCart();
+    }
+
+    function createCartProduct(title, price, imgsrc, quantity) {
+        return `
                 <div class="cart-box">
                     <img src="${imgsrc}" class="cart-img">
                     <div class="detail-box">
@@ -216,115 +236,114 @@ Joe Shopping
                     </div>
                     <i class="fa-solid fa-trash cart-delete-icon"></i>
                 </div>`;
+    }
+
+    function updateCart() {
+        cartContent.innerHTML = '';
+        let totalPrice = 0;
+
+        itemList.forEach(item => {
+            cartContent.innerHTML += createCartProduct(item.title, item.price, item.imgsrc, item.quantity);
+        });
+
+        document.querySelectorAll('.cart-box').forEach(cartBox => {
+            const priceElement = cartBox.querySelector('.cart-cloth-price');
+            const quantityInput = cartBox.querySelector('.cart-quantity');
+            const singlePrice = parseFloat(priceElement.textContent.replace('Rs.', ''));
+
+            // Update the total price based on quantity
+            const itemTotal = singlePrice * quantityInput.value;
+            cartBox.querySelector('.cart-amt').textContent = `Rs.${itemTotal.toFixed(2)}`;
+            totalPrice += itemTotal;
+        });
+
+        totalPriceElem.textContent = `Rs.${totalPrice.toFixed(2)}`;
+        cartCount.textContent = itemList.length;
+    }
+
+    cartContent.addEventListener('change', (event) => {
+        if (event.target.classList.contains('cart-quantity')) {
+            const cartBox = event.target.closest('.cart-box');
+            const title = cartBox.querySelector('.detail-cloth-title').textContent;
+
+            // Update item quantity in itemList array
+            const item = itemList.find(item => item.title === title);
+            if (item) {
+                item.quantity = parseInt(event.target.value, 10);
+            }
+
+            updateCart();
         }
+    });
 
-        function updateCart() {
-            cartContent.innerHTML = '';
-            let totalPrice = 0;
+    cartContent.addEventListener('click', (event) => {
+        if (event.target.classList.contains('cart-delete-icon')) {
+            const cartBox = event.target.closest('.cart-box');
+            const title = cartBox.querySelector('.detail-cloth-title').textContent;
 
-            itemList.forEach(item => {
-                cartContent.innerHTML += createCartProduct(item.title, item.price, item.imgsrc, item.quantity);
-            });
+            // Remove item from itemList array
+            itemList = itemList.filter(item => item.title !== title);
 
-            document.querySelectorAll('.cart-box').forEach(cartBox => {
-                const priceElement = cartBox.querySelector('.cart-cloth-price');
-                const quantityInput = cartBox.querySelector('.cart-quantity');
-                const singlePrice = parseFloat(priceElement.textContent.replace('Rs.', ''));
-
-                // Update the total price based on quantity
-                const itemTotal = singlePrice * quantityInput.value;
-                cartBox.querySelector('.cart-amt').textContent = `Rs.${itemTotal.toFixed(2)}`;
-                totalPrice += itemTotal;
-            });
-
-            totalPriceElem.textContent = `Rs.${totalPrice.toFixed(2)}`;
-            cartCount.textContent = itemList.length;
+            updateCart();
         }
+    });
 
-        cartContent.addEventListener('change', (event) => {
-            if (event.target.classList.contains('cart-quantity')) {
-                const cartBox = event.target.closest('.cart-box');
-                const title = cartBox.querySelector('.detail-cloth-title').textContent;
+    document.querySelectorAll('.shop-now').forEach(button => {
+        button.addEventListener('click', addCart);
+    });
 
-                // Update item quantity in itemList array
-                const item = itemList.find(item => item.title === title);
-                if (item) {
-                    item.quantity = parseInt(event.target.value, 10);
+    function startTimer(duration, displayHours, displayMinutes, displaySeconds) {
+        let timer = duration, hours, minutes, seconds;
+        setInterval(function () {
+            hours = parseInt(timer / 3600, 10); // Calculate hours
+            minutes = parseInt((timer % 3600) / 60, 10); // Calculate minutes
+            seconds = parseInt(timer % 60, 10); // Calculate seconds
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            displayHours.textContent = hours;
+            displayMinutes.textContent = minutes;
+            displaySeconds.textContent = seconds;
+
+            if (--timer < 0) {
+                clearInterval(this); // Stop the timer when it reaches 0
+            }
+        }, 1000);
+    }
+
+    window.onload = function () {
+        let countdownTime = 5 * 60 * 60; // 5 hours in seconds
+        let displayHours = document.getElementById('hours');
+        let displayMinutes = document.getElementById('minutes');
+        let displaySeconds = document.getElementById('seconds');
+        startTimer(countdownTime, displayHours, displayMinutes, displaySeconds);
+    };
+    window.onload = function () {
+        let countdownTime = 5 * 60 * 60; // 5 hours in seconds
+        let displayHours = document.getElementById('hours');
+        let displayMinutes = document.getElementById('minutes');
+        let displaySeconds = document.getElementById('seconds');
+        startTimer(countdownTime, displayHours, displayMinutes, displaySeconds);
+    };
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('search-bar');
+        const productCards = document.querySelectorAll('.brd');
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+
+            productCards.forEach(card => {
+                const itemName = card.getAttribute('data-item').toLowerCase();
+                if (itemName.includes(query)) {
+                    card.style.display = ''; // Show card
+                } else {
+                    card.style.display = 'none'; // Hide card
                 }
-
-                updateCart();
-            }
-        });
-
-        cartContent.addEventListener('click', (event) => {
-            if (event.target.classList.contains('cart-delete-icon')) {
-                const cartBox = event.target.closest('.cart-box');
-                const title = cartBox.querySelector('.detail-cloth-title').textContent;
-
-                // Remove item from itemList array
-                itemList = itemList.filter(item => item.title !== title);
-
-                updateCart();
-            }
-        });
-
-        document.querySelectorAll('.shop-now').forEach(button => {
-            button.addEventListener('click', addCart);
-        });
-
-        function startTimer(duration, displayHours, displayMinutes, displaySeconds) {
-    let timer = duration, hours, minutes, seconds;
-    setInterval(function () {
-        hours = parseInt(timer / 3600, 10); // Calculate hours
-        minutes = parseInt((timer % 3600) / 60, 10); // Calculate minutes
-        seconds = parseInt(timer % 60, 10); // Calculate seconds
-
-        hours = hours < 10 ? "0" + hours : hours;
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        displayHours.textContent = hours;
-        displayMinutes.textContent = minutes;
-        displaySeconds.textContent = seconds;
-
-        if (--timer < 0) {
-            clearInterval(this); // Stop the timer when it reaches 0
-        }
-    }, 1000);
-}
-
-window.onload = function () {
-    let countdownTime = 5 * 60 * 60; // 5 hours in seconds
-    let displayHours = document.getElementById('hours');
-    let displayMinutes = document.getElementById('minutes');
-    let displaySeconds = document.getElementById('seconds');
-    startTimer(countdownTime, displayHours, displayMinutes, displaySeconds);
-};
-window.onload = function () {
-    let countdownTime = 5 * 60 * 60; // 5 hours in seconds
-    let displayHours = document.getElementById('hours');
-    let displayMinutes = document.getElementById('minutes');
-    let displaySeconds = document.getElementById('seconds');
-    startTimer(countdownTime, displayHours, displayMinutes, displaySeconds);
-};
-document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('search-bar');
-    const productCards = document.querySelectorAll('.brd');
-
-    searchInput.addEventListener('input', () => {
-        const query = searchInput.value.toLowerCase();
-        
-        productCards.forEach(card => {
-            const itemName = card.getAttribute('data-item').toLowerCase();
-            if (itemName.includes(query)) {
-                card.style.display = ''; // Show card
-            } else {
-                card.style.display = 'none'; // Hide card
-            }
+            });
         });
     });
-});
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 {% endblock %}
-
